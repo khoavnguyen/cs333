@@ -6,3 +6,11 @@ I:\fslfj\cs333\Scheduling\obj\Release\Scheduling.Properties.Resources.resources
 I:\fslfj\cs333\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
 I:\fslfj\cs333\Scheduling\obj\Release\Scheduling.exe
 I:\fslfj\cs333\Scheduling\obj\Release\Scheduling.pdb
+I:\cs333\Scheduling\obj\Release\Scheduling.exe
+I:\cs333\Scheduling\obj\Release\Scheduling.pdb
+I:\cs333\Scheduling\bin\Release\Scheduling.exe
+I:\cs333\Scheduling\bin\Release\Scheduling.pdb
+I:\cs333\Scheduling\obj\Release\ResolveAssemblyReference.cache
+I:\cs333\Scheduling\obj\Release\Scheduling.Form1.resources
+I:\cs333\Scheduling\obj\Release\Scheduling.Properties.Resources.resources
+I:\cs333\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache

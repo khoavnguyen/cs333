@@ -1,0 +1,8 @@
+I:\fslfj\cs333\Scheduling\bin\Release\Scheduling.exe
+I:\fslfj\cs333\Scheduling\bin\Release\Scheduling.pdb
+I:\fslfj\cs333\Scheduling\obj\Release\ResolveAssemblyReference.cache
+I:\fslfj\cs333\Scheduling\obj\Release\Scheduling.Form1.resources
+I:\fslfj\cs333\Scheduling\obj\Release\Scheduling.Properties.Resources.resources
+I:\fslfj\cs333\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
+I:\fslfj\cs333\Scheduling\obj\Release\Scheduling.exe
+I:\fslfj\cs333\Scheduling\obj\Release\Scheduling.pdb

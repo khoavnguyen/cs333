@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Scheduling
 {
-    class Algorithm
+    public class Algorithm
     {
         ArrayList readyList;
         ArrayList waitingList;

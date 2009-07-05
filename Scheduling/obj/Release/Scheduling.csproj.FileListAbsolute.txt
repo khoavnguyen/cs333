@@ -23,3 +23,12 @@ C:\Documents and Settings\USER\Desktop\New Folder (5)\Scheduling\obj\Release\Sch
 C:\Documents and Settings\USER\Desktop\New Folder (5)\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
 C:\Documents and Settings\USER\Desktop\New Folder (5)\Scheduling\obj\Release\Scheduling.Forms.DisplayForm.resources
 C:\Documents and Settings\USER\Desktop\New Folder (5)\Scheduling\obj\Release\Scheduling.MainForm.resources
+C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\obj\Release\Scheduling.exe
+C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\obj\Release\Scheduling.pdb
+C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\obj\Release\Scheduling.Forms.DisplayForm.resources
+C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\obj\Release\Scheduling.MainForm.resources
+C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\obj\Release\Scheduling.Properties.Resources.resources
+C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
+C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\bin\Release\Scheduling.exe
+C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\bin\Release\Scheduling.pdb

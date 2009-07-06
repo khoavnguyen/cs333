@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Scheduling.Forms;
+using Scheduling.Source_codes;
+
 namespace Scheduling
 {
     public partial class MainForm : Form
@@ -37,6 +39,16 @@ namespace Scheduling
         {
             DisplayForm x = new DisplayForm();
             x.Show();
+        }
+        
+        Algorithm[] algos = { new FCFS(), new SJF() };
+        
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int algoIndex = comboBox2.SelectedIndex;
+            Scheduler scheduler = new Scheduler();
+            scheduler.Algorithm = algos[algoIndex];
+            
         }
     }
 }

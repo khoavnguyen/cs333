@@ -19,5 +19,9 @@ namespace Scheduling
                 schedulingAlgo = value;
             }
         }
+        public void loadProcesses(string fileName)
+        {
+            schedulingAlgo.loadProcesses(fileName);
+        }
     }
 }

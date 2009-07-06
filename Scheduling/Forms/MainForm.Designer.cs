@@ -36,7 +36,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(210, 26);
+            this.button1.Location = new System.Drawing.Point(69, 25);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(73, 21);
             this.button1.TabIndex = 2;
@@ -47,7 +47,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(44, 27);
+            this.comboBox1.Location = new System.Drawing.Point(44, 76);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 3;
@@ -66,10 +66,11 @@
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 4;
             this.comboBox2.Text = "Choose an algorithm";
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(210, 121);
+            this.button2.Location = new System.Drawing.Point(222, 103);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(73, 21);
             this.button2.TabIndex = 5;

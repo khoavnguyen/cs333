@@ -32,3 +32,12 @@ C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\obj\Release\Sch
 C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
 C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\bin\Release\Scheduling.exe
 C:\Documents and Settings\USER\Desktop\New Folder (6)\Scheduling\bin\Release\Scheduling.pdb
+G:\cs333\Scheduling\obj\Release\Scheduling.exe
+G:\cs333\Scheduling\obj\Release\Scheduling.pdb
+G:\cs333\Scheduling\bin\Release\Scheduling.exe
+G:\cs333\Scheduling\bin\Release\Scheduling.pdb
+G:\cs333\Scheduling\obj\Release\ResolveAssemblyReference.cache
+G:\cs333\Scheduling\obj\Release\Scheduling.Forms.DisplayForm.resources
+G:\cs333\Scheduling\obj\Release\Scheduling.MainForm.resources
+G:\cs333\Scheduling\obj\Release\Scheduling.Properties.Resources.resources
+G:\cs333\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache

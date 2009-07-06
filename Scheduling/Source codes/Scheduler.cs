@@ -7,7 +7,7 @@ namespace Scheduling
 {
     public class Scheduler
     {
-        private Algorithm schedulingAlgo;
+        public Algorithm schedulingAlgo;
         public Algorithm Algorithm
         {
             get

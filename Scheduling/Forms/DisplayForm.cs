@@ -11,7 +11,7 @@ namespace Scheduling.Forms
 {
     public partial class DisplayForm : Form
     {
-        Algorithm algo = null;
+        Scheduler scheduler = null;
         public DisplayForm()
         {
             InitializeComponent();
@@ -19,12 +19,21 @@ namespace Scheduling.Forms
 
         public DisplayForm(Scheduler scheduler)
         {
-            //algo = algorithm;
+            this.scheduler = scheduler;
         }
 
         private void DisplayForm_Load(object sender, EventArgs e)
         {
             //if algo = round robin add combobox quantum
+            Algorithm a = scheduler.Algorithm;
+            for (int i = 0; i < a.processes.Count; i++)
+            {
+                string s="";
+                Process p = (Process)a.processes[i];
+                for (int j = 0; j < p.timeList.Count; j++)
+                    s += (int)p.timeList[i];
+                MessageBox.Show(s);
+            }
         }
 
     }

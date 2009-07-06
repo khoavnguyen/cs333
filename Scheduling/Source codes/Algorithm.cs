@@ -4,12 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Scheduling
 {
     public class Algorithm
     {
-        ArrayList processes;
+        public ArrayList processes;
         ArrayList readyList;
         ArrayList waitingList;
 
@@ -20,6 +21,7 @@ namespace Scheduling
             string line;
             while ((line = file.ReadLine()) != null)
             {
+                MessageBox.Show(line);
                 Process p = new Process(line);
                 processes.Add(p);
             }

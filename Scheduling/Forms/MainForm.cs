@@ -36,7 +36,7 @@ namespace Scheduling
         private void button2_Click(object sender, EventArgs e)
         {
             DisplayForm x = new DisplayForm();
-            x.ShowDialog();
+            x.Show();
         }
     }
 }

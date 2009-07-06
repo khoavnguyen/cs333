@@ -18,6 +18,7 @@ namespace Scheduling
             InitializeComponent();
         }
 
+        String[] files;
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -29,25 +30,32 @@ namespace Scheduling
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 s = openFileDialog1.SafeFileNames;
+                files = openFileDialog1.FileNames;
                 for (int i = 0; i < s.Length; i++)
+                {
                     comboBox1.Items.Add(s[i]);
+                }
             }
             
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DisplayForm x = new DisplayForm();
-            x.Show();
-        }
-        
         Algorithm[] algos = { new FCFS(), new SJF() };
-        
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void button2_Click(object sender, EventArgs e)
         {
             int algoIndex = comboBox2.SelectedIndex;
             Scheduler scheduler = new Scheduler();
             scheduler.Algorithm = algos[algoIndex];
+            int fileIndex = comboBox1.SelectedIndex;
+            MessageBox.Show(files[fileIndex]);
+            
+            DisplayForm x = new DisplayForm(scheduler);
+            x.Show();
+        }
+        
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
             
         }
     }

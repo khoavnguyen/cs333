@@ -13,6 +13,7 @@ namespace Scheduling
 
         public Process(string times)
         {
+            timeList = new ArrayList();
             string[] time = times.Split(new char[]{' ','\t'});
             arrive = Int32.Parse(time[0]);
             for (int i = 1; i < time.Length; i++)

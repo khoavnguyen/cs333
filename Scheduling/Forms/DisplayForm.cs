@@ -17,9 +17,9 @@ namespace Scheduling.Forms
             InitializeComponent();
         }
 
-        public DisplayForm(Algorithm algorithm)
+        public DisplayForm(Scheduler scheduler)
         {
-            algo = algorithm;
+            //algo = algorithm;
         }
 
         private void DisplayForm_Load(object sender, EventArgs e)

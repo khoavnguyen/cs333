@@ -1,0 +1,9 @@
+I:\cs333\Scheduling\bin\Debug\Scheduling.exe
+I:\cs333\Scheduling\bin\Debug\Scheduling.pdb
+I:\cs333\Scheduling\obj\Debug\ResolveAssemblyReference.cache
+I:\cs333\Scheduling\obj\Debug\Scheduling.Forms.DisplayForm.resources
+I:\cs333\Scheduling\obj\Debug\Scheduling.MainForm.resources
+I:\cs333\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
+I:\cs333\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache
+I:\cs333\Scheduling\obj\Debug\Scheduling.exe
+I:\cs333\Scheduling\obj\Debug\Scheduling.pdb

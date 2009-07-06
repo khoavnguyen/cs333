@@ -11,7 +11,6 @@ I:\cs333\Scheduling\obj\Release\Scheduling.pdb
 I:\cs333\Scheduling\bin\Release\Scheduling.exe
 I:\cs333\Scheduling\bin\Release\Scheduling.pdb
 I:\cs333\Scheduling\obj\Release\ResolveAssemblyReference.cache
-I:\cs333\Scheduling\obj\Release\Scheduling.Form1.resources
 I:\cs333\Scheduling\obj\Release\Scheduling.Properties.Resources.resources
 I:\cs333\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
 C:\Documents and Settings\USER\Desktop\New Folder (5)\Scheduling\obj\Release\Scheduling.exe
@@ -41,3 +40,5 @@ G:\cs333\Scheduling\obj\Release\Scheduling.Forms.DisplayForm.resources
 G:\cs333\Scheduling\obj\Release\Scheduling.MainForm.resources
 G:\cs333\Scheduling\obj\Release\Scheduling.Properties.Resources.resources
 G:\cs333\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
+I:\cs333\Scheduling\obj\Release\Scheduling.Forms.DisplayForm.resources
+I:\cs333\Scheduling\obj\Release\Scheduling.MainForm.resources

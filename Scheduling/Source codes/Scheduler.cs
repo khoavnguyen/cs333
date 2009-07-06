@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Scheduling
 {
-    class Scheduler
+    public class Scheduler
     {
         private Algorithm schedulingAlgo;
         public Algorithm Algorithm

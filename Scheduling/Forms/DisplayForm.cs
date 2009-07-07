@@ -23,6 +23,7 @@ namespace Scheduling.Forms
         {
             //algo = algorithm;
             InitializeComponent();
+            this.scheduler = scheduler;
         }
 
         private void DisplayForm_Load(object sender, EventArgs e)
@@ -34,6 +35,9 @@ namespace Scheduling.Forms
         {
             time++;
             scheduler.schedule(time);
+            Process cpu = scheduler.Algorithm.CurrCPUProc;
+            Process io = scheduler.Algorithm.CurrIOProc;
+            //draw...
         }
 
     }

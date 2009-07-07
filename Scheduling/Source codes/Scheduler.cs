@@ -7,7 +7,7 @@ namespace Scheduling
 {
     public class Scheduler
     {
-        public Algorithm schedulingAlgo;
+        private Algorithm schedulingAlgo;
         public Algorithm Algorithm
         {
             get
@@ -19,9 +19,15 @@ namespace Scheduling
                 schedulingAlgo = value;
             }
         }
+        
         public void loadProcesses(string fileName)
         {
             schedulingAlgo.loadProcesses(fileName);
+        }
+        
+        public void schedule(int t)
+        {
+            schedulingAlgo.schedule(t);
         }
     }
 }

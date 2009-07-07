@@ -4,15 +4,31 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 
 namespace Scheduling
 {
     public class Algorithm
     {
-        public ArrayList processes;
+        ArrayList processes;
         ArrayList readyList;
         ArrayList waitingList;
+        Process currCPUProc;
+        Process currIOProc;
+
+        public Process CurrCPUProc
+        {
+            get
+            {
+                return currCPUProc;
+            }
+        }
+        public Process CurrIOProc
+        {
+            get
+            {
+                return currIOProc;
+            }
+        }
 
         public void loadProcesses(string fileName)
         {
@@ -21,11 +37,13 @@ namespace Scheduling
             string line;
             while ((line = file.ReadLine()) != null)
             {
-                MessageBox.Show(line);
                 Process p = new Process(line);
                 processes.Add(p);
             }
             file.Close();
+        }
+        public virtual void schedule(int t)
+        {
         }
     }
 }

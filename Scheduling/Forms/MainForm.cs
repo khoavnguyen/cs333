@@ -48,15 +48,7 @@ namespace Scheduling
             scheduler.Algorithm = algos[algoIndex];
             int fileIndex = comboBox1.SelectedIndex;
             scheduler.loadProcesses(files[fileIndex]);
-            Algorithm a = scheduler.Algorithm;
-            for (int i = 0; i < a.processes.Count; i++)
-            {
-                string s = "";
-                Process p = (Process)a.processes[i];
-                for (int j = 0; j < p.timeList.Count; j++)
-                    s += (int)p.timeList[i];
-                MessageBox.Show(s);
-            }
+            
             DisplayForm x = new DisplayForm(scheduler);
             x.Show();
         }

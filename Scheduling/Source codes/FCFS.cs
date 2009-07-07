@@ -7,5 +7,8 @@ namespace Scheduling.Source_codes
 {
     class FCFS:Algorithm
     {
+        public override void schedule(int t)
+        {
+        }
     }
 }

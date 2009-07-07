@@ -54,5 +54,9 @@ namespace Scheduling
         {
             
         }
+        public int countProcesses()
+        {
+            return processes.Count;
+        }
     }
 }

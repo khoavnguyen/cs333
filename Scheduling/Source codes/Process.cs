@@ -11,7 +11,6 @@ namespace Scheduling
     {
         int arriveTime;
         ArrayList timeList;
-        Color color;
         int remainTime;
         int phase;
 
@@ -31,19 +30,7 @@ namespace Scheduling
             get
             {
                 return arriveTime;
-            }
-        }
-        
-        public Color Color
-        {
-            get
-            {
-                return color;
-            }
-            set
-            {
-                color = value;
-            }
+            } 
         }
         
         public int RemainTime

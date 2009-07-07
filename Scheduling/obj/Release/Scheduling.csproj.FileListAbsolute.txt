@@ -42,6 +42,15 @@ G:\cs333\Scheduling\obj\Release\Scheduling.Properties.Resources.resources
 G:\cs333\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
 I:\cs333\Scheduling\obj\Release\Scheduling.Forms.DisplayForm.resources
 I:\cs333\Scheduling\obj\Release\Scheduling.MainForm.resources
+C:\Documents and Settings\USER\Desktop\New Folder (7)\Scheduling\obj\Release\Scheduling.exe
+C:\Documents and Settings\USER\Desktop\New Folder (7)\Scheduling\obj\Release\Scheduling.pdb
+C:\Documents and Settings\USER\Desktop\New Folder (7)\Scheduling\bin\Release\Scheduling.exe
+C:\Documents and Settings\USER\Desktop\New Folder (7)\Scheduling\bin\Release\Scheduling.pdb
+C:\Documents and Settings\USER\Desktop\New Folder (7)\Scheduling\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\USER\Desktop\New Folder (7)\Scheduling\obj\Release\Scheduling.Forms.DisplayForm.resources
+C:\Documents and Settings\USER\Desktop\New Folder (7)\Scheduling\obj\Release\Scheduling.MainForm.resources
+C:\Documents and Settings\USER\Desktop\New Folder (7)\Scheduling\obj\Release\Scheduling.Properties.Resources.resources
+C:\Documents and Settings\USER\Desktop\New Folder (7)\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
 I:\New Folder\Scheduling\obj\Release\Scheduling.exe
 I:\New Folder\Scheduling\obj\Release\Scheduling.pdb
 I:\New Folder\Scheduling\obj\Release\ResolveAssemblyReference.cache
@@ -51,3 +60,12 @@ I:\New Folder\Scheduling\obj\Release\Scheduling.Properties.Resources.resources
 I:\New Folder\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
 I:\New Folder\Scheduling\bin\Release\Scheduling.exe
 I:\New Folder\Scheduling\bin\Release\Scheduling.pdb
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Release\Scheduling.exe
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Release\Scheduling.pdb
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Release\Scheduling.Forms.DisplayForm.resources
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Release\Scheduling.MainForm.resources
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Release\Scheduling.Properties.Resources.resources
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\bin\Release\Scheduling.exe
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\bin\Release\Scheduling.pdb

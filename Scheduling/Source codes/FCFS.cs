@@ -10,9 +10,10 @@ namespace Scheduling.Source_codes
         int overhead = 1;
         int remainOvh;
 
-        public override void schedule(int t)
+        public override bool schedule(int t)
         {
-            if (currCPUProc == null) 
+            return false;
+          /*  if (currCPUProc == null) 
             {
                 if (remainOvh == 0)
                 {
@@ -63,7 +64,7 @@ namespace Scheduling.Source_codes
                 Process p = (Process)processes[i];
                 if (p.ArriveTime == t)
                     readyList.Add(p);
-            }
+            }*/
         }
 
     }

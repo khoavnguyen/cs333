@@ -11,7 +11,7 @@ namespace Scheduling.Forms
 {
     public partial class DisplayForm : Form
     {
-        Scheduler scheduler = null;
+        Algorithm algo = null;
 
         ArrayList colorList = null;
         ArrayList color = null;
@@ -25,20 +25,18 @@ namespace Scheduling.Forms
             InitializeComponent();
         }
 
-        public DisplayForm(Scheduler scheduler)
+        public DisplayForm(Algorithm algorithm)
         {
-
-            //algo = algorithm;
             InitializeComponent();
-            this.scheduler = scheduler;
+            this.algo = algorithm;
             
             listView1.OwnerDraw = true;
             colorList = GetColors();
             color = new ArrayList();
             Random x = new Random();
-            for (int i = 0; i < scheduler.Algorithm.countProcesses(); i++)
+            for (int i = 0; i < algo.countProcesses(); i++)
             {
-                comboBox1.Items.Add("P" + i.ToString());
+                comboBox1.Items.Add(algo.getProcName(i));
                 color.Add(Color.FromKnownColor((KnownColor)colorList[x.Next(173)]));
             }
         }
@@ -108,22 +106,38 @@ namespace Scheduling.Forms
    
         private void button3_Click(object sender, EventArgs e)
         {
-            time++;
-            
-            scheduler.schedule(time);
-            Process cpu = scheduler.Algorithm.CurrCPUProc;
-            Process io = scheduler.Algorithm.CurrIOProc;
-
-            int x = scheduler.Algorithm.countProcesses();
-            //call algo.schedule(p1, p2);
-
-            listView1.Items[1].SubItems.Add(new ListViewItem.ListViewSubItem(listView1.Items[1],
-                    "P0", Color.Black, (Color)color[0], listView1.Items[1].Font));
-            listView1.Items[3].SubItems.Add(new ListViewItem.ListViewSubItem(listView1.Items[3],
-                    "P1", Color.Black, (Color)color[1], listView1.Items[3].Font));
-
-            listView1.Columns.Add((time+1).ToString());
+            step();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            step();
+        }
+
+        private bool step()
+        {
+            time++;
+
+            if(!algo.schedule(time))
+                return false;
+            Process cpu = algo.CurrCPUProc;
+            Process io = algo.CurrIOProc;
+
+            if (cpu == null)
+                listView1.Items[1].SubItems.Add("OH");
+            else if (algo.isDummy(cpu))
+                listView1.Items[1].SubItems.Add("");
+            else
+                listView1.Items[1].SubItems.Add(new ListViewItem.ListViewSubItem(listView1.Items[1],
+                    cpu.Name, Color.Black, (Color)color[cpu.ID], listView1.Items[1].Font));
+            if (io == null || algo.isDummy(io))
+                listView1.Items[3].SubItems.Add("");
+            else
+                listView1.Items[3].SubItems.Add(new ListViewItem.ListViewSubItem(listView1.Items[3],
+                    io.Name, Color.Black, (Color)color[io.ID], listView1.Items[3].Font));
+
+            listView1.Columns.Add((time + 1).ToString());
+            return true;
+        }
     }
 }

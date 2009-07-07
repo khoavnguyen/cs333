@@ -44,12 +44,11 @@ namespace Scheduling
         private void button2_Click(object sender, EventArgs e)
         {
             int algoIndex = comboBox2.SelectedIndex;
-            Scheduler scheduler = new Scheduler();
-            scheduler.Algorithm = algos[algoIndex];
+            Algorithm algorithm =  algos[algoIndex];
             int fileIndex = comboBox1.SelectedIndex;
-            scheduler.loadProcesses(files[fileIndex]);
+            algorithm.loadProcesses(files[fileIndex]);
 
-            DisplayForm x = new DisplayForm(scheduler);
+            DisplayForm x = new DisplayForm(algorithm);
             
             x.Show();
         }

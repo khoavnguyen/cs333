@@ -9,12 +9,21 @@ namespace Scheduling
 {
     public class Algorithm
     {
+        public bool isDummy(Process x) { return x == Process.dummy; }
         protected ArrayList processes;
         protected ArrayList readyList;
         protected ArrayList waitingList;
         protected Process currCPUProc;
         protected Process currIOProc;
 
+        public Algorithm()
+        {
+            processes = new ArrayList();
+            readyList = new ArrayList();
+            waitingList = new ArrayList();
+            currCPUProc = null;
+            currIOProc = null;
+        }
         public Process CurrCPUProc
         {
             get
@@ -40,7 +49,6 @@ namespace Scheduling
 
         public void loadProcesses(string fileName)
         {
-            processes = new ArrayList();
             StreamReader file = new StreamReader(fileName);
             string line;
             while ((line = file.ReadLine()) != null)
@@ -50,13 +58,17 @@ namespace Scheduling
             }
             file.Close();
         }
-        public virtual void schedule(int t)
+        public virtual bool schedule(int t)
         {
-            
+            return false;
         }
         public int countProcesses()
         {
             return processes.Count;
+        }
+        public String getProcName(int index)
+        {
+            return ((Process)processes[index]).Name;
         }
     }
 }

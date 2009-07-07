@@ -64,7 +64,6 @@
     </Compile>
     <Compile Include="Source codes\FCFS.cs" />
     <Compile Include="Source codes\Process.cs" />
-    <Compile Include="Source codes\Scheduler.cs" />
     <Compile Include="Source codes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\DisplayForm.resx">

@@ -9,11 +9,11 @@ namespace Scheduling
 {
     public class Algorithm
     {
-        ArrayList processes;
-        ArrayList readyList;
-        ArrayList waitingList;
-        Process currCPUProc;
-        Process currIOProc;
+        protected ArrayList processes;
+        protected ArrayList readyList;
+        protected ArrayList waitingList;
+        protected Process currCPUProc;
+        protected Process currIOProc;
 
         public Process CurrCPUProc
         {
@@ -21,12 +21,20 @@ namespace Scheduling
             {
                 return currCPUProc;
             }
+            set
+            {
+                currCPUProc = value;
+            }
         }
         public Process CurrIOProc
         {
             get
             {
                 return currIOProc;
+            }
+            set
+            {
+                currIOProc = value;
             }
         }
 
@@ -44,6 +52,7 @@ namespace Scheduling
         }
         public virtual void schedule(int t)
         {
+            
         }
     }
 }

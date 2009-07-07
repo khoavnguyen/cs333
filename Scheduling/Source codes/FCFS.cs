@@ -12,7 +12,7 @@ namespace Scheduling.Source_codes
 
         public override void schedule(int t)
         {
-            if (currCPUProc == null) // currCPU=null thi ve cai cell overhead ra
+            if (currCPUProc == null) 
             {
                 if (remainOvh == 0)
                 {
@@ -28,22 +28,36 @@ namespace Scheduling.Source_codes
             {
                 if (currCPUProc.RemainTime == 0)
                 {
-                    currCPUProc = null;
                     remainOvh = overhead;
+                    currCPUProc.toNextPhase();
                     if (CurrIOProc != null)
-                    {
-                        currCPUProc.toNextPhase();
                         waitingList.Add(currCPUProc);
-                    }
                     else
                         CurrIOProc = currCPUProc;
+                    currCPUProc = null;
                 }
                 else
                 {
                     currCPUProc.RemainTime--;
                 }
             }
-            
+
+            if(currIOProc != null)
+                if (currIOProc.RemainTime == 0)
+                {
+                    currIOProc.toNextPhase();
+                    if (CurrCPUProc != null)
+                        readyList.Add(currIOProc);
+                    else
+                        CurrCPUProc = currIOProc;
+                    CurrIOProc = (Process)waitingList[0];
+                    waitingList.RemoveAt(0);
+                }
+                else
+                {
+                    currIOProc.RemainTime--;
+                }
+
             for (int i = 0; i < processes.Count; i++)
             {
                 Process p = (Process)processes[i];

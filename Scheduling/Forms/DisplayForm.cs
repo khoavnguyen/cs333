@@ -106,20 +106,23 @@ namespace Scheduling.Forms
    
         private void button3_Click(object sender, EventArgs e)
         {
-            step();
+            if(!step())
+                MessageBox.Show("Scheduling finished.");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            step();
+            while(step());
+            MessageBox.Show("Scheduling finished.");
         }
 
         private bool step()
         {
+            if (!algo.schedule(time))
+                return false;
+
             time++;
 
-            if(!algo.schedule(time))
-                return false;
             Process cpu = algo.CurrCPUProc;
             Process io = algo.CurrIOProc;
 

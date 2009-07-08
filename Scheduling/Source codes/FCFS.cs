@@ -7,64 +7,69 @@ namespace Scheduling.Source_codes
 {
     class FCFS:Algorithm
     {
-        int overhead = 1;
-        int remainOvh;
-
         public override bool schedule(int t)
         {
-            return false;
-          /*  if (currCPUProc == null) 
+            bool finished = true;
+            for (int i = 0; i < processes.Count; i++)
             {
-                if (remainOvh == 0)
-                {
-                    Process p = (Process)readyList[0];
-                    readyList.RemoveAt(0);
-                    currCPUProc = p;
-                    currCPUProc.RemainTime--;
-                }
-                else
-                    remainOvh--;
+                Process p = (Process)processes[i];
+                if (!p.Finished)
+                    finished = false;
             }
-            else
-            {
-                if (currCPUProc.RemainTime == 0)
-                {
-                    remainOvh = overhead;
-                    currCPUProc.toNextPhase();
-                    if (CurrIOProc != null)
-                        waitingList.Add(currCPUProc);
-                    else
-                        CurrIOProc = currCPUProc;
-                    currCPUProc = null;
-                }
-                else
-                {
-                    currCPUProc.RemainTime--;
-                }
-            }
-
-            if(currIOProc != null)
-                if (currIOProc.RemainTime == 0)
-                {
-                    currIOProc.toNextPhase();
-                    if (CurrCPUProc != null)
-                        readyList.Add(currIOProc);
-                    else
-                        CurrCPUProc = currIOProc;
-                    CurrIOProc = (Process)waitingList[0];
-                    waitingList.RemoveAt(0);
-                }
-                else
-                {
-                    currIOProc.RemainTime--;
-                }
+            if (finished)
+                return false;
 
             for (int i = 0; i < processes.Count; i++)
             {
                 Process p = (Process)processes[i];
                 if (p.ArriveTime == t)
                     readyList.Add(p);
-            }*/
+            }
+
+            if (currIOProc != null && currIOProc != Process.dummy)
+                if (currIOProc.RemainTime == 0)
+                {
+                    if (currIOProc.toNextPhase())
+                        readyList.Add(currIOProc);
+                    currIOProc = Process.dummy;
+                }
+            if (currCPUProc == null || currCPUProc == Process.dummy)
+            {
+                if (readyList.Count == 0)
+                    return true;
+                Process p = (Process)readyList[0];
+                currCPUProc = p;
+                currCPUProc.RemainTime--;
+                readyList.RemoveAt(0);
+            }
+            else
+            {
+                if (currCPUProc.RemainTime == 0)
+                {
+                    if (currCPUProc.toNextPhase())
+                        waitingList.Add(currCPUProc);
+                    currCPUProc = null;
+
+                }
+                else
+                {
+                    currCPUProc.RemainTime--;
+                }
+            }
+            if (currIOProc == null || currIOProc == Process.dummy)
+            {
+                if (waitingList.Count == 0)
+                    return true;
+                Process p = (Process)waitingList[0];
+                currIOProc = p;
+                currIOProc.RemainTime--;
+                waitingList.RemoveAt(0);
+            }
+            else
+            {
+                currIOProc.RemainTime--;
+            }
+            return true;
         }
 
     }

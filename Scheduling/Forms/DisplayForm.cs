@@ -87,7 +87,7 @@ namespace Scheduling.Forms
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 String s = comboBox1.SelectedItem.ToString();
-                for (int i = 1; i <= time + 1; i++)
+                for (int i = 1; i < listView1.Items[1].SubItems.Count; i++)
                 {
                     if (listView1.Items[1].SubItems[i].Text == s)
                     {
@@ -118,11 +118,10 @@ namespace Scheduling.Forms
 
         private bool step()
         {
+            time++;
             if (!algo.schedule(time))
                 return false;
-
-            time++;
-
+            
             Process cpu = algo.CurrCPUProc;
             Process io = algo.CurrIOProc;
 

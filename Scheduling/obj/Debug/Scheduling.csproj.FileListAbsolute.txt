@@ -7,8 +7,6 @@ I:\cs333\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
 I:\cs333\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache
 I:\cs333\Scheduling\obj\Debug\Scheduling.exe
 I:\cs333\Scheduling\obj\Debug\Scheduling.pdb
-C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.exe
-C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.pdb
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\bin\Debug\Scheduling.exe
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\bin\Debug\Scheduling.pdb
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\ResolveAssemblyReference.cache
@@ -16,3 +14,5 @@ C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Deb
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.MainForm.resources
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.exe
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.pdb

@@ -83,6 +83,25 @@ namespace Scheduling
             remainTime = (int)timeList[phase++];
             return true;
         }
+        public bool toPrevPhase()
+        {
+            if (phase == 0)
+                return false;
+            if (phase == 1)
+                remainTime = (int)timeList[0];
+            if (phase == timeList.Count && finished == true)
+                finished = false;
+            else
+            {
+                phase--;
+                remainTime = 0;
+            }
+            return true;
+        }
+        public int currentPhase()
+        {
+            return (int)timeList[phase - 1];
+        }
         public int totalTime()
         {
             int total = 0;
@@ -96,6 +115,12 @@ namespace Scheduling
             {
                 return finished;
             }
+        }
+        public void reload()
+        {
+            phase = 0;
+            remainTime = (int)timeList[phase++];
+            finished = false;
         }
     }
 }

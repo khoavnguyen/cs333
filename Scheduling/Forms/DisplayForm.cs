@@ -46,16 +46,8 @@ namespace Scheduling.Forms
             //if algo = round robin add combobox quantum
            // if (scheduler.Algorithm is RR)
            //     textBox1.Enabled = true;
-            listView1.Columns.Add("Timeline", 80);
-            listView1.Items.Add("");
-            listView1.Items.Add("Cpu time"); 
-            listView1.Items.Add("");
-            listView1.Items.Add("IO time");
-            listView1.Items[1].UseItemStyleForSubItems = false;
-            listView1.Items[3].UseItemStyleForSubItems = false;
-            listView1.Columns.Add("0");
+            reloadForm();
         }
-
 
         private void DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
         {
@@ -107,13 +99,13 @@ namespace Scheduling.Forms
         private void button3_Click(object sender, EventArgs e)
         {
             if(!step())
-                MessageBox.Show("Scheduling finished.");
+                MessageBox.Show("Finished scheduling.");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             while(step());
-            MessageBox.Show("Scheduling finished.");
+            MessageBox.Show("Finished scheduling.");
         }
 
         private bool step()
@@ -140,6 +132,41 @@ namespace Scheduling.Forms
 
             listView1.Columns.Add((time + 1).ToString());
             return true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            time = -1;
+            algo.reloadProcesses(); 
+            listView1.Clear();
+            reloadForm();
+            MessageBox.Show("Finished undo scheduling.");
+        }
+
+        public void reloadForm()
+        {
+            listView1.Columns.Add("Timeline", 80);
+            listView1.Items.Add("");
+            listView1.Items.Add("Cpu time");
+            listView1.Items.Add("");
+            listView1.Items.Add("IO time");
+            listView1.Items[1].UseItemStyleForSubItems = false;
+            listView1.Items[3].UseItemStyleForSubItems = false;
+            listView1.Columns.Add("0");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (algo.undoSchedule(time))
+            {
+                time--;
+                listView1.Items[1].SubItems.RemoveAt(listView1.Items[1].SubItems.Count - 1);
+                listView1.Items[3].SubItems.RemoveAt(listView1.Items[3].SubItems.Count - 1);
+                listView1.Columns.RemoveAt(listView1.Columns.Count - 1);
+
+            }
+            else
+                MessageBox.Show("Finished undo scheduling.");
         }
     }
 }

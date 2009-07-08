@@ -18,19 +18,30 @@ namespace Scheduling
             }
             if (finished)
                 return false;
-
+            currProcs.Add(currCPUProc);
+            currProcs.Add(currIOProc);
             for(int i = 0; i < processes.Count; i++)
             {
                 Process p = (Process)processes[i];
                 if (p.ArriveTime == t)
+                {
                     readyList.Add(p);
+                    readyListStack.Add(p);
+                    readyListStack.Add(true);
+                    readyListStack.Add(t);
+                }
             }
             
             if(currIOProc != null && currIOProc != Process.dummy)
                 if (currIOProc.RemainTime == 0)
                 {
-                    if(currIOProc.toNextPhase())
+                    if (currIOProc.toNextPhase())
+                    {
                         readyList.Add(currIOProc);
+                        readyListStack.Add(currIOProc);
+                        readyListStack.Add(true);
+                        readyListStack.Add(t);
+                    }
                     currIOProc = Process.dummy;
                 }
             if (currCPUProc == null || currCPUProc == Process.dummy)
@@ -52,15 +63,22 @@ namespace Scheduling
                 currCPUProc = (Process)readyList[least];
                 currCPUProc.RemainTime--;
                 readyList.RemoveAt(least);
+                readyListStack.Add(currCPUProc);
+                readyListStack.Add(false);
+                readyListStack.Add(t);
             }
             else
             {
                 if (currCPUProc.RemainTime == 0)
                 {
-                    if(currCPUProc.toNextPhase())
+                    if (currCPUProc.toNextPhase())
+                    {
                         waitingList.Add(currCPUProc);
+                        waitingListStack.Add(currCPUProc);
+                        waitingListStack.Add(true);
+                        waitingListStack.Add(t);
+                    }
                     currCPUProc = null;
-                    
                 }
                 else
                 {
@@ -86,6 +104,9 @@ namespace Scheduling
                 currIOProc = (Process)waitingList[least];
                 currIOProc.RemainTime--;
                 waitingList.RemoveAt(least);
+                waitingListStack.Add(currIOProc);
+                waitingListStack.Add(false);
+                waitingListStack.Add(t);
             }
             else
             {
@@ -93,5 +114,7 @@ namespace Scheduling
             }
             return true;
         }
+
     }
+
 }

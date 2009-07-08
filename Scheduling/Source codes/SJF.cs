@@ -26,7 +26,7 @@ namespace Scheduling
                     readyList.Add(p);
             }
             
-            if(currIOProc != null)
+            if(currIOProc != null && currIOProc != Process.dummy)
                 if (currIOProc.RemainTime == 0)
                 {
                     if(currIOProc.toNextPhase())
@@ -57,10 +57,9 @@ namespace Scheduling
             {
                 if (currCPUProc.RemainTime == 0)
                 {
-                    currCPUProc.toNextPhase();
-                    
+                    if(currCPUProc.toNextPhase())
                         waitingList.Add(currCPUProc);
-                        currCPUProc = null;
+                    currCPUProc = null;
                     
                 }
                 else

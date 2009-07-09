@@ -34,3 +34,12 @@ C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling
 C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.MainForm.resources
 C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
 C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache
+H:\New Folder\Scheduling\obj\Debug\Scheduling.exe
+H:\New Folder\Scheduling\obj\Debug\Scheduling.pdb
+H:\New Folder\Scheduling\bin\Debug\Scheduling.exe
+H:\New Folder\Scheduling\bin\Debug\Scheduling.pdb
+H:\New Folder\Scheduling\obj\Debug\ResolveAssemblyReference.cache
+H:\New Folder\Scheduling\obj\Debug\Scheduling.Forms.DisplayForm.resources
+H:\New Folder\Scheduling\obj\Debug\Scheduling.MainForm.resources
+H:\New Folder\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
+H:\New Folder\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache

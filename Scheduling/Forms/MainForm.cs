@@ -38,11 +38,11 @@ namespace Scheduling
             }
             
         }
-
-        Algorithm[] algos = { new FCFS(), new SJF() };
+      
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Algorithm[] algos = { new FCFS(), new SJF(), null, new RR() };
             int algoIndex = comboBox2.SelectedIndex;
             Algorithm algorithm =  algos[algoIndex];
             int fileIndex = comboBox1.SelectedIndex;

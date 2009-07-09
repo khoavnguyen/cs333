@@ -22,6 +22,10 @@ namespace Scheduling.Source_codes
                 else
                     cpuQuantum = currCPUProc.RemainTime - 1;
                 currCPUProc.RemainTime--;
+                p = (Process)readyList[0];
+                readyListStack.Add(p);
+                readyListStack.Add(false);
+                readyListStack.Add(t);
                 readyList.RemoveAt(0);
             }
             else
@@ -29,7 +33,12 @@ namespace Scheduling.Source_codes
                 if (currCPUProc.RemainTime == 0)
                 {
                     if (currCPUProc.toNextPhase())
+                    {
                         waitingList.Add(currCPUProc);
+                        waitingListStack.Add(currCPUProc);
+                        waitingListStack.Add(true);
+                        waitingListStack.Add(t);
+                    }
                     currCPUProc = null;
 
                 }
@@ -38,6 +47,9 @@ namespace Scheduling.Source_codes
                     if (cpuQuantum == 0)
                     {
                         readyList.Add(currCPUProc);
+                        readyListStack.Add(currCPUProc);
+                        readyListStack.Add(true);
+                        readyListStack.Add(t);
                         CurrCPUProc = null;
                     }
                     else

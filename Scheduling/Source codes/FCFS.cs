@@ -17,13 +17,21 @@ namespace Scheduling.Source_codes
                 currCPUProc = p;
                 currCPUProc.RemainTime--;
                 readyList.RemoveAt(0);
+                readyListStack.Add(p);
+                readyListStack.Add(false);
+                readyListStack.Add(t);
             }
             else
             {
                 if (currCPUProc.RemainTime == 0)
                 {
                     if (currCPUProc.toNextPhase())
+                    {
                         waitingList.Add(currCPUProc);
+                        waitingListStack.Add(currCPUProc);
+                        waitingListStack.Add(true);
+                        waitingListStack.Add(t);
+                    }
                     currCPUProc = null;
 
                 }

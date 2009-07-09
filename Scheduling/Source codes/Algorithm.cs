@@ -26,8 +26,8 @@ namespace Scheduling
             readyListStack = new ArrayList();
             waitingListStack = new ArrayList();
             currProcs = new ArrayList();
-            currCPUProc = null;
-            currIOProc = null;
+            currCPUProc = Process.dummy;
+            currIOProc = Process.dummy;
         }
         public Process CurrCPUProc
         {
@@ -56,14 +56,72 @@ namespace Scheduling
         {
             StreamReader file = new StreamReader(fileName);
             string line;
+            int i = 0;
             while ((line = file.ReadLine()) != null)
             {
-                Process p = new Process(line);
+                Process p = new Process(line, i++);
                 processes.Add(p);
             }
             file.Close();
         }
-        public virtual bool schedule(int t)
+        public bool schedule(int t)
+        {
+            bool finished = true;
+            for (int i = 0; i < processes.Count; i++)
+            {
+                Process p = (Process)processes[i];
+                if (!p.Finished)
+                    finished = false;
+            }
+            if (finished)
+                return false;
+            currProcs.Add(currCPUProc);
+            currProcs.Add(currIOProc);
+            for (int i = 0; i < processes.Count; i++)
+            {
+                Process p = (Process)processes[i];
+                if (p.ArriveTime == t)
+                {
+                    readyList.Add(p);
+                    readyListStack.Add(p);
+                    readyListStack.Add(true);
+                    readyListStack.Add(t);
+                }
+            }
+
+            if (currIOProc != null && currIOProc != Process.dummy)
+                if (currIOProc.RemainTime == 0)
+                {
+                    if (currIOProc.toNextPhase())
+                    {
+                        readyList.Add(currIOProc);
+                        readyListStack.Add(currIOProc);
+                        readyListStack.Add(true);
+                        readyListStack.Add(t);
+                    }
+                    currIOProc = Process.dummy;
+                }
+
+            scheduleCPU(t);
+
+            if (currIOProc == null || currIOProc == Process.dummy)
+            {
+                if (waitingList.Count == 0)
+                    return true;
+                currIOProc = (Process)waitingList[0];
+                currIOProc.RemainTime--;
+                waitingList.RemoveAt(0);
+                waitingListStack.Add(currIOProc);
+                waitingListStack.Add(false);
+                waitingListStack.Add(t);
+            }
+            else
+            {
+                currIOProc.RemainTime--;
+            }
+            return true;
+        }
+        public virtual bool scheduleCPU(int t)
         {
             return false;
         }
@@ -109,32 +167,7 @@ namespace Scheduling
                 }
             currCPUProc = p;
             currProcs.RemoveAt(currProcs.Count - 1);
-            /*
-            if(currCPUProc != null && currCPUProc != Process.dummy)
-                if (currCPUProc.RemainTime + 1 == currCPUProc.currentPhase())
-                    currCPUProc.toPrevPhase();
-                else
-                    currCPUProc.RemainTime++;
-            if (currIOProc != null && currIOProc != Process.dummy)
-                if (currIOProc.RemainTime + 1 == currIOProc.currentPhase())
-                    currIOProc.toPrevPhase();
-                else
-                    currIOProc.RemainTime++;
 
-            Process p = (Process)currProcs[currProcs.Count - 1];
-            if (currIOProc == null || currIOProc == Process.dummy)
-                if(p != null && p != Process.dummy)
-                    p.toPrevPhase();
-            currIOProc = p;
-            currProcs.RemoveAt(currProcs.Count - 1);
-
-            Process q = (Process)currProcs[currProcs.Count - 1];
-            if (currCPUProc == null || currCPUProc == Process.dummy)
-                if (q != null && q != Process.dummy)
-                    q.toPrevPhase();
-            currCPUProc = q;
-            currProcs.RemoveAt(currProcs.Count - 1);
-            */
             while(waitingListStack.Count > 0 && (int)waitingListStack[waitingListStack.Count - 1] == t)
                 {
                     waitingListStack.RemoveAt(waitingListStack.Count - 1);
@@ -179,6 +212,20 @@ namespace Scheduling
             currProcs.Clear();
             currCPUProc = null;
             currIOProc = null;
+        }
+        public bool isFinished()
+        {
+            bool finished = true;
+            for (int i = 0; i < processes.Count; i++)
+            {
+                Process p = (Process)processes[i];
+                if (!p.Finished)
+                    finished = false;
+            }
+            if (!finished)
+                return false;
+
+            return true;
         }
     }
 }

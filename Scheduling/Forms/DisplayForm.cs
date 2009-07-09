@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using Scheduling.Source_codes;
 namespace Scheduling.Forms
 {
     public partial class DisplayForm : Form
@@ -16,9 +17,7 @@ namespace Scheduling.Forms
         ArrayList colorList = null;
         ArrayList color = null;
 
-
         int time = -1;
-
 
         public DisplayForm()
         {
@@ -37,15 +36,14 @@ namespace Scheduling.Forms
             for (int i = 0; i < algo.countProcesses(); i++)
             {
                 comboBox1.Items.Add(algo.getProcName(i));
-                color.Add(Color.FromKnownColor((KnownColor)colorList[x.Next(173)]));
+                color.Add(Color.FromKnownColor((KnownColor)colorList[x.Next(colorList.Count - 1)]));
             }
         }
 
         private void DisplayForm_Load(object sender, EventArgs e)
         {
-            //if algo = round robin add combobox quantum
-           // if (scheduler.Algorithm is RR)
-           //     textBox1.Enabled = true;
+            if (algo is RR)
+                textBox1.Enabled = true;
             reloadForm();
         }
 
@@ -167,6 +165,12 @@ namespace Scheduling.Forms
             }
             else
                 MessageBox.Show("Finished undo scheduling.");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (!algo.isFinished())
+                MessageBox.Show("Must finish scheduling first.");
         }
     }
 }

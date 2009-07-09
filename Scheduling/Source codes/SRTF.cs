@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Scheduling
 {
-    class SJF:Algorithm
+    class SRTF:Algorithm
     {
         public override bool scheduleCPU(int t)
         {
@@ -48,10 +48,26 @@ namespace Scheduling
                 }
                 else
                 {
-                    currCPUProc.RemainTime--;
+                    if (readyList.Count == 0)
+                    {
+                        currCPUProc.RemainTime--;
+                        return false;
+                    }
+                    Process p = (Process)readyList[readyList.Count - 1];
+                    
+                    if (currCPUProc.RemainTime <= p.RemainTime)
+                        currCPUProc.RemainTime--;
+                    else
+                    {
+                        readyListStack.Add(currCPUProc);
+                        readyListStack.Add(false);
+                        readyListStack.Add(t);
+                        readyList.Add(currCPUProc);
+                        currCPUProc = null;
+                    }
                 }
             }
-            return true;
+            return false;
         }
     }
 

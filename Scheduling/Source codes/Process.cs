@@ -9,7 +9,6 @@ namespace Scheduling
 {
     public class Process
     {
-        static int countProcs = 0;
         String name;
         int id;
         int arriveTime;
@@ -27,7 +26,7 @@ namespace Scheduling
             timeList = new ArrayList();
         }
 
-        public Process(string times)
+        public Process(string times, int Id)
         {
             timeList = new ArrayList();
             string[] time = times.Split(new char[]{' ','\t'});
@@ -38,7 +37,7 @@ namespace Scheduling
             phase = 0;
             remainTime = (int)timeList[phase++];
             finished = false;
-            id = countProcs++;
+            id = Id;
         }
         
         public int ArriveTime
@@ -101,13 +100,6 @@ namespace Scheduling
         public int currentPhase()
         {
             return (int)timeList[phase - 1];
-        }
-        public int totalTime()
-        {
-            int total = 0;
-            for (int i = 0; i < timeList.Count; i++)
-                total += (int)timeList[i];
-            return total;
         }
         public bool Finished
         {

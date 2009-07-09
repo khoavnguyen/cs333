@@ -36,15 +36,15 @@ namespace Scheduling
                     comboBox1.Items.Add(s[i]);
                 }
             }
-            
         }
-      
+
+      //  Algorithm[] algos = { new FCFS(), new SJF() };
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Algorithm[] algos = { new FCFS(), new SJF(), null, new RR() };
             int algoIndex = comboBox2.SelectedIndex;
-            Algorithm algorithm =  algos[algoIndex];
+      //      Algorithm algorithm =  algos[algoIndex];
+            Algorithm algorithm = newAlgorithm(algoIndex);
             int fileIndex = comboBox1.SelectedIndex;
             algorithm.loadProcesses(files[fileIndex]);
 
@@ -52,11 +52,22 @@ namespace Scheduling
             
             x.Show();
         }
-        
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+
+        private Algorithm newAlgorithm(int type)
         {
-           
-            
+            switch (type)
+            {
+                case 0:
+                    return new FCFS();
+                case 1:
+                    return new SJF();
+                case 2:
+                    return new SRTF();
+                case 3:
+                    return new RR();
+                default:
+                    return null;
+            }
         }
     }
 }

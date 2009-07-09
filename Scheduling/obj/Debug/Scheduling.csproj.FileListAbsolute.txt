@@ -1,45 +1,9 @@
-I:\cs333\Scheduling\bin\Debug\Scheduling.exe
-I:\cs333\Scheduling\bin\Debug\Scheduling.pdb
-I:\cs333\Scheduling\obj\Debug\ResolveAssemblyReference.cache
-I:\cs333\Scheduling\obj\Debug\Scheduling.Forms.DisplayForm.resources
-I:\cs333\Scheduling\obj\Debug\Scheduling.MainForm.resources
-I:\cs333\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
-I:\cs333\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache
-I:\cs333\Scheduling\obj\Debug\Scheduling.exe
-I:\cs333\Scheduling\obj\Debug\Scheduling.pdb
-C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\bin\Debug\Scheduling.exe
-C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\bin\Debug\Scheduling.pdb
-C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.Forms.DisplayForm.resources
-C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.MainForm.resources
-C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
-C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache
-C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.exe
-C:\Documents and Settings\USER\Desktop\Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.pdb
-G:\cs333\Scheduling\obj\Debug\Scheduling.exe
-G:\cs333\Scheduling\obj\Debug\Scheduling.pdb
-G:\cs333\Scheduling\bin\Debug\Scheduling.exe
-G:\cs333\Scheduling\bin\Debug\Scheduling.pdb
-G:\cs333\Scheduling\obj\Debug\ResolveAssemblyReference.cache
-G:\cs333\Scheduling\obj\Debug\Scheduling.Forms.DisplayForm.resources
-G:\cs333\Scheduling\obj\Debug\Scheduling.MainForm.resources
-G:\cs333\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
-G:\cs333\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache
-C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.exe
-C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.pdb
-C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling\bin\Debug\Scheduling.exe
-C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling\bin\Debug\Scheduling.pdb
-C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.Forms.DisplayForm.resources
-C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.MainForm.resources
-C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
-C:\Documents and Settings\USER\Desktop\Copy of Copy of New Folder (7)\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache
-H:\New Folder\Scheduling\obj\Debug\Scheduling.exe
-H:\New Folder\Scheduling\obj\Debug\Scheduling.pdb
-H:\New Folder\Scheduling\bin\Debug\Scheduling.exe
-H:\New Folder\Scheduling\bin\Debug\Scheduling.pdb
-H:\New Folder\Scheduling\obj\Debug\ResolveAssemblyReference.cache
-H:\New Folder\Scheduling\obj\Debug\Scheduling.Forms.DisplayForm.resources
-H:\New Folder\Scheduling\obj\Debug\Scheduling.MainForm.resources
-H:\New Folder\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
-H:\New Folder\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Debug\Scheduling.exe
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Debug\Scheduling.pdb
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Debug\Scheduling.Forms.DisplayForm.resources
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Debug\Scheduling.MainForm.resources
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\bin\Debug\Scheduling.exe
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\bin\Debug\Scheduling.pdb

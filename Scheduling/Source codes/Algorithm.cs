@@ -201,6 +201,10 @@ namespace Scheduling
         {
             return ((Process)processes[index]).Name;
         }
+        public int getProcArriveT(int index)
+        {
+            return ((Process)processes[index]).ArriveTime;
+        }
         public void reloadProcesses()
         {
             for (int i = 0; i < processes.Count; i++)

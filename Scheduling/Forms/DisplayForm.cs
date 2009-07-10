@@ -19,6 +19,8 @@ namespace Scheduling.Forms
 
         int time = -1;
 
+        ListView resultLv;
+
         public DisplayForm()
         {
             InitializeComponent();
@@ -43,7 +45,11 @@ namespace Scheduling.Forms
         private void DisplayForm_Load(object sender, EventArgs e)
         {
             if (algo is RR)
+            {
                 textBox1.Enabled = true;
+                RR rr = (RR)algo;
+                rr.Quantum = Int32.Parse(textBox1.Text);
+            }
             reloadForm();
         }
 
@@ -171,6 +177,73 @@ namespace Scheduling.Forms
         {
             if (!algo.isFinished())
                 MessageBox.Show("Must finish scheduling first.");
+            else
+            {
+                resultLv = new ListView();
+                resultLv.View = View.Details;
+                resultLv.GridLines = true;
+                resultLv.Columns.Add("Name");
+                resultLv.Columns.Add("Waiting time");
+                resultLv.Columns.Add("Turnaround time");
+                waitingTime();
+                turnaroundTime();
+                StatForm stats = new StatForm(resultLv);
+                stats.Show();
+            }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            RR rr = (RR)algo;
+            rr.Quantum = Int32.Parse(textBox1.Text);
+            time = -1;
+            algo.reloadProcesses();
+            listView1.Clear();
+            reloadForm();
+        }
+
+        private int waitingTime()
+        {
+            int sum = 0, i; 
+            for (i = 0; i < algo.countProcesses(); i++)
+            {
+                string name = algo.getProcName(i);
+                int count = 0;
+                int j = listView1.Items[1].SubItems.Count - 1;
+                while (listView1.Items[1].SubItems[j].Text != name)
+                    j--;       
+                for ( ; j >= algo.getProcArriveT(i) + 1; j--)
+                    if (listView1.Items[1].SubItems[j].Text != name &&
+                       listView1.Items[3].SubItems[j].Text != name)
+                            count++;
+                ListViewItem lvi = resultLv.Items.Add(name);
+                lvi.SubItems.Add(count.ToString());
+                sum += count;
+            }
+            int avgWT = sum / algo.countProcesses();
+            resultLv.Items.Add("Avg");
+            resultLv.Items[i].SubItems.Add(avgWT.ToString());
+            return avgWT;
+        }
+
+        private int turnaroundTime()
+        {
+            int sum = 0, i; 
+            for (i = 0; i < algo.countProcesses(); i++)
+            {
+                string name = algo.getProcName(i);
+                int t;
+                int j = listView1.Items[1].SubItems.Count - 1;
+                while (listView1.Items[1].SubItems[j].Text != name)
+                    j--;
+                t = j - algo.getProcArriveT(i);
+                resultLv.Items[i].SubItems.Add(t.ToString());
+                sum += t;
+            }
+            int avgTT = sum / algo.countProcesses();
+            resultLv.Items[i].SubItems.Add(avgTT.ToString());
+            return avgTT;
+        }
+
     }
 }

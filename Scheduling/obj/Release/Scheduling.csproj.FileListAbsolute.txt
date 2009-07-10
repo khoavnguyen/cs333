@@ -78,3 +78,4 @@ H:\New Folder\Scheduling\obj\Release\Scheduling.Properties.Resources.resources
 H:\New Folder\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
 H:\New Folder\Scheduling\obj\Release\Scheduling.exe
 H:\New Folder\Scheduling\obj\Release\Scheduling.pdb
+G:\cs333\Scheduling\obj\Release\Scheduling.Forms.StatForm.resources

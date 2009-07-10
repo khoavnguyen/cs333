@@ -7,7 +7,16 @@ namespace Scheduling.Source_codes
 {
     class RR:Algorithm
     {
-        int quantum = 3, cpuQuantum;
+        int quantum; 
+        int cpuQuantum;
+
+        public int Quantum
+        {
+            set
+            {
+                quantum = value;
+            }
+        }
 
         public override bool scheduleCPU(int t)
         {

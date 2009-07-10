@@ -7,3 +7,5 @@ C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Deb
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\bin\Debug\Scheduling.exe
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\bin\Debug\Scheduling.pdb
+G:\cs333\Scheduling\obj\Debug\Scheduling.exe
+G:\cs333\Scheduling\obj\Debug\Scheduling.pdb

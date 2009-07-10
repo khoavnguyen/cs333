@@ -11,6 +11,7 @@ namespace Scheduling.Source_codes
         {
             if (currCPUProc == null || currCPUProc == Process.dummy)
             {
+                currCPUProc = Process.dummy;
                 if (readyList.Count == 0)
                     return true;
                 Process p = (Process)readyList[0];

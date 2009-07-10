@@ -69,5 +69,11 @@ namespace Scheduling
                     return null;
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            InputForm x = new InputForm();
+            x.ShowDialog();
+        }
     }
 }

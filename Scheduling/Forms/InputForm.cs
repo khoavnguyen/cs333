@@ -64,7 +64,10 @@ namespace Scheduling.Forms
                 {
                     StreamWriter write = new StreamWriter(file);
                     foreach (String s in processes)
-                            write.Write(s);
+                    {
+                        write.WriteLine(s);
+                        write.Flush();
+                    }
                     file.Close();
                 } 
                 MessageBox.Show("File saved.");

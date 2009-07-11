@@ -23,6 +23,7 @@ namespace Scheduling.Forms
         public StatForm(ListView lv, Algorithm algo)
         {
             InitializeComponent();
+            listView1.Visible = false;
             for (int i = 0; i < lv.Items.Count; i++)
                 listView2.Items.Add((ListViewItem)lv.Items[i].Clone());
             this.algo = algo;
@@ -51,6 +52,7 @@ namespace Scheduling.Forms
                 }
                 listView1.Items[0].SubItems.Add(avgWT.ToString());
                 listView1.Items[1].SubItems.Add(avgTT.ToString());
+                listView1.Visible = true;
             }
         }
     }

@@ -90,3 +90,4 @@ C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Rel
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Release\Scheduling.csproj.GenerateResource.Cache
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Release\Scheduling.exe
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Release\Scheduling.pdb
+G:\cs333\Scheduling\obj\Release\Scheduling.Forms.InputForm.resources

@@ -18,6 +18,8 @@ namespace Scheduling
         protected ArrayList readyListStack;
         protected ArrayList waitingListStack;
         protected ArrayList currProcs;
+        string fileName;
+
         public Algorithm()
         {
             processes = new ArrayList();
@@ -51,9 +53,17 @@ namespace Scheduling
                 currIOProc = value;
             }
         }
+        public string FileName
+        {
+            get
+            {
+                return fileName;
+            }
+        }
 
         public void loadProcesses(string fileName)
         {
+            this.fileName = fileName;
             StreamReader file = new StreamReader(fileName);
             string line;
             int i = 0;
@@ -168,29 +178,29 @@ namespace Scheduling
             currCPUProc = p;
             currProcs.RemoveAt(currProcs.Count - 1);
 
-            while(waitingListStack.Count > 0 && (int)waitingListStack[waitingListStack.Count - 1] == t)
-                {
-                    waitingListStack.RemoveAt(waitingListStack.Count - 1);
-                    if ((bool)waitingListStack[waitingListStack.Count - 1] == true)
-                        waitingList.Remove(waitingListStack[waitingListStack.Count - 2]);
-                    else
-                        waitingList.Add(waitingListStack[waitingListStack.Count - 2]);
-                    
-                    waitingListStack.RemoveAt(waitingListStack.Count - 1);
-                    waitingListStack.RemoveAt(waitingListStack.Count - 1);
-                }
-            while(readyListStack.Count > 0 && (int)readyListStack[readyListStack.Count - 1] == t)
-                {
-                    readyListStack.RemoveAt(readyListStack.Count - 1);
-                    if ((bool)readyListStack[readyListStack.Count - 1] == true)
-                        readyList.Remove(readyListStack[readyListStack.Count - 2]);
-                    else
-                        readyList.Add(readyListStack[readyListStack.Count - 2]);
-                    
-                    readyListStack.RemoveAt(readyListStack.Count - 1);
-                    readyListStack.RemoveAt(readyListStack.Count - 1);
-                }
-            
+            while (waitingListStack.Count > 0 && (int)waitingListStack[waitingListStack.Count - 1] == t)
+            {
+                waitingListStack.RemoveAt(waitingListStack.Count - 1);
+                if ((bool)waitingListStack[waitingListStack.Count - 1] == true)
+                    waitingList.Remove(waitingListStack[waitingListStack.Count - 2]);
+                else
+                    waitingList.Add(waitingListStack[waitingListStack.Count - 2]);
+
+                waitingListStack.RemoveAt(waitingListStack.Count - 1);
+                waitingListStack.RemoveAt(waitingListStack.Count - 1);
+            }
+            while (readyListStack.Count > 0 && (int)readyListStack[readyListStack.Count - 1] == t)
+            {
+                readyListStack.RemoveAt(readyListStack.Count - 1);
+                if ((bool)readyListStack[readyListStack.Count - 1] == true)
+                    readyList.Remove(readyListStack[readyListStack.Count - 2]);
+                else
+                    readyList.Add(readyListStack[readyListStack.Count - 2]);
+
+                readyListStack.RemoveAt(readyListStack.Count - 1);
+                readyListStack.RemoveAt(readyListStack.Count - 1);
+            }
+
             return true;
         }
         public int countProcesses()

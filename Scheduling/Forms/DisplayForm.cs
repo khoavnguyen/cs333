@@ -30,7 +30,7 @@ namespace Scheduling.Forms
         {
             InitializeComponent();
             this.algo = algorithm;
-            
+
             listView1.OwnerDraw = true;
             colorList = GetColors();
             color = new ArrayList();
@@ -55,7 +55,7 @@ namespace Scheduling.Forms
 
         private void DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
         {
-            TextFormatFlags flag = e.ColumnIndex > 0 ?  TextFormatFlags.HorizontalCenter : TextFormatFlags.Left;
+            TextFormatFlags flag = e.ColumnIndex > 0 ? TextFormatFlags.HorizontalCenter : TextFormatFlags.Left;
             e.DrawBackground();
             e.DrawText(flag);
         }
@@ -66,7 +66,7 @@ namespace Scheduling.Forms
             e.DrawBackground();
             e.DrawText();
         }
-        
+
         private ArrayList GetColors()
         {
             ArrayList colors = new ArrayList();
@@ -75,7 +75,7 @@ namespace Scheduling.Forms
             return colors;
         }
 
-        
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -99,25 +99,25 @@ namespace Scheduling.Forms
             }
 
         }
-   
+
         private void button3_Click(object sender, EventArgs e)
         {
-            if(!step())
+            if (!step())
                 MessageBox.Show("Finished scheduling.");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            while(step());
+            while (step()) ;
             MessageBox.Show("Finished scheduling.");
         }
 
-        private bool step()
+        public bool step()
         {
             time++;
             if (!algo.schedule(time))
                 return false;
-            
+
             Process cpu = algo.CurrCPUProc;
             Process io = algo.CurrIOProc;
 
@@ -141,7 +141,7 @@ namespace Scheduling.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             time = -1;
-            algo.reloadProcesses(); 
+            algo.reloadProcesses();
             listView1.Clear();
             reloadForm();
             MessageBox.Show("Finished undo scheduling.");
@@ -187,7 +187,7 @@ namespace Scheduling.Forms
                 resultLv.Columns.Add("Turnaround time");
                 waitingTime();
                 turnaroundTime();
-                StatForm stats = new StatForm(resultLv);
+                StatForm stats = new StatForm(resultLv, algo);
                 stats.Show();
             }
         }
@@ -202,33 +202,33 @@ namespace Scheduling.Forms
             reloadForm();
         }
 
-        private int waitingTime()
+        public float waitingTime()
         {
-            int sum = 0, i; 
+            int sum = 0, i;
             for (i = 0; i < algo.countProcesses(); i++)
             {
                 string name = algo.getProcName(i);
                 int count = 0;
                 int j = listView1.Items[1].SubItems.Count - 1;
                 while (listView1.Items[1].SubItems[j].Text != name)
-                    j--;       
-                for ( ; j >= algo.getProcArriveT(i) + 1; j--)
+                    j--;
+                for (; j >= algo.getProcArriveT(i) + 1; j--)
                     if (listView1.Items[1].SubItems[j].Text != name &&
                        listView1.Items[3].SubItems[j].Text != name)
-                            count++;
+                        count++;
                 ListViewItem lvi = resultLv.Items.Add(name);
                 lvi.SubItems.Add(count.ToString());
                 sum += count;
             }
-            int avgWT = sum / algo.countProcesses();
+            float avgWT = (float)sum / algo.countProcesses();
             resultLv.Items.Add("Avg");
             resultLv.Items[i].SubItems.Add(avgWT.ToString());
             return avgWT;
         }
 
-        private int turnaroundTime()
+        public float turnaroundTime()
         {
-            int sum = 0, i; 
+            int sum = 0, i;
             for (i = 0; i < algo.countProcesses(); i++)
             {
                 string name = algo.getProcName(i);
@@ -240,7 +240,7 @@ namespace Scheduling.Forms
                 resultLv.Items[i].SubItems.Add(t.ToString());
                 sum += t;
             }
-            int avgTT = sum / algo.countProcesses();
+            float avgTT = (float)sum / algo.countProcesses();
             resultLv.Items[i].SubItems.Add(avgTT.ToString());
             return avgTT;
         }

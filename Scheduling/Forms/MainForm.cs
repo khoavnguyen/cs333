@@ -19,7 +19,7 @@ namespace Scheduling
             InitializeComponent();
         }
 
-        String[] files;
+        ArrayList files = new ArrayList();
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -31,7 +31,8 @@ namespace Scheduling
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 s = openFileDialog1.SafeFileNames;
-                files = openFileDialog1.FileNames;
+                foreach(String path in openFileDialog1.FileNames)
+                    files.Add(path);
                 for (int i = 0; i < s.Length; i++)
                 {
                     comboBox1.Items.Add(s[i]);
@@ -54,13 +55,13 @@ namespace Scheduling
             }
             int fileIndex = comboBox1.SelectedIndex;
             int algoIndex = comboBox2.SelectedIndex;
-            InputForm i = new InputForm(files[fileIndex]);
+            InputForm i = new InputForm((String)files[fileIndex]);
             if (!i.checkFormat())
             {
                 MessageBox.Show("The file you selected has a wrong format. Please edit it first.");
                 i.External = false;
                 i.ShowDialog();
-                InputForm j = new InputForm(files[fileIndex]);
+                InputForm j = new InputForm((String)files[fileIndex]);
                 if (!j.checkFormat())
                 {
                     MessageBox.Show("Please choose another input file.");
@@ -69,7 +70,7 @@ namespace Scheduling
             }
             
             Algorithm algorithm = newAlgorithm(algoIndex);
-            algorithm.loadProcesses(files[fileIndex]);
+            algorithm.loadProcesses((String)files[fileIndex]);
 
             DisplayForm x = new DisplayForm(algorithm);
             

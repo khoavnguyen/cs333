@@ -29,6 +29,7 @@ namespace Scheduling.Forms
         public DisplayForm(Algorithm algorithm)
         {
             InitializeComponent();
+            resultLv = new ListView();
             this.algo = algorithm;
 
             listView1.OwnerDraw = true;
@@ -40,6 +41,7 @@ namespace Scheduling.Forms
                 comboBox1.Items.Add(algo.getProcName(i));
                 color.Add(Color.FromKnownColor((KnownColor)colorList[x.Next(colorList.Count - 1)]));
             }
+            reloadForm();
         }
 
         private void DisplayForm_Load(object sender, EventArgs e)
@@ -178,8 +180,7 @@ namespace Scheduling.Forms
             if (!algo.isFinished())
                 MessageBox.Show("Must finish scheduling first.");
             else
-            {
-                resultLv = new ListView();
+            {               
                 resultLv.View = View.Details;
                 resultLv.GridLines = true;
                 resultLv.Columns.Add("Name");

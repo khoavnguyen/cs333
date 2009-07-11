@@ -9,3 +9,12 @@ C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\bin\Deb
 C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\bin\Debug\Scheduling.pdb
 G:\cs333\Scheduling\obj\Debug\Scheduling.exe
 G:\cs333\Scheduling\obj\Debug\Scheduling.pdb
+G:\cs333\Scheduling\bin\Debug\Scheduling.exe
+G:\cs333\Scheduling\bin\Debug\Scheduling.pdb
+G:\cs333\Scheduling\obj\Debug\ResolveAssemblyReference.cache
+G:\cs333\Scheduling\obj\Debug\Scheduling.Forms.DisplayForm.resources
+G:\cs333\Scheduling\obj\Debug\Scheduling.MainForm.resources
+G:\cs333\Scheduling\obj\Debug\Scheduling.Forms.StatForm.resources
+G:\cs333\Scheduling\obj\Debug\Scheduling.Forms.InputForm.resources
+G:\cs333\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
+G:\cs333\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache

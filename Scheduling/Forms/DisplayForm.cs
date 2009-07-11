@@ -29,7 +29,6 @@ namespace Scheduling.Forms
         public DisplayForm(Algorithm algorithm)
         {
             InitializeComponent();
-            resultLv = new ListView();
             this.algo = algorithm;
 
             listView1.OwnerDraw = true;
@@ -181,13 +180,7 @@ namespace Scheduling.Forms
                 MessageBox.Show("Must finish scheduling first.");
             else
             {               
-                resultLv.View = View.Details;
-                resultLv.GridLines = true;
-                resultLv.Columns.Add("Name");
-                resultLv.Columns.Add("Waiting time");
-                resultLv.Columns.Add("Turnaround time");
-                waitingTime();
-                turnaroundTime();
+                setupResult();
                 StatForm stats = new StatForm(resultLv, algo);
                 stats.Show();
             }
@@ -203,10 +196,13 @@ namespace Scheduling.Forms
             reloadForm();
         }
 
+        int[] wts, tts;
         public float waitingTime()
         {
             int sum = 0, i;
-            for (i = 0; i < algo.countProcesses(); i++)
+            int n = algo.countProcesses();
+            wts = new int[n];
+            for (i = 0; i < n; i++)
             {
                 string name = algo.getProcName(i);
                 int count = 0;
@@ -217,19 +213,20 @@ namespace Scheduling.Forms
                     if (listView1.Items[1].SubItems[j].Text != name &&
                        listView1.Items[3].SubItems[j].Text != name)
                         count++;
-                ListViewItem lvi = resultLv.Items.Add(name);
-                lvi.SubItems.Add(count.ToString());
+                wts[i] = count;
                 sum += count;
             }
-            float avgWT = (float)sum / algo.countProcesses();
-            resultLv.Items.Add("Avg");
-            resultLv.Items[i].SubItems.Add(avgWT.ToString());
+            float avgWT = (float)sum / n;
+            /*resultLv.Items.Add("Avg");
+            resultLv.Items[i].SubItems.Add(avgWT.ToString());*/
             return avgWT;
         }
 
         public float turnaroundTime()
         {
             int sum = 0, i;
+            int n = algo.countProcesses();
+            tts = new int[n];
             for (i = 0; i < algo.countProcesses(); i++)
             {
                 string name = algo.getProcName(i);
@@ -238,12 +235,27 @@ namespace Scheduling.Forms
                 while (listView1.Items[1].SubItems[j].Text != name)
                     j--;
                 t = j - algo.getProcArriveT(i);
-                resultLv.Items[i].SubItems.Add(t.ToString());
+                tts[i] = t;
                 sum += t;
             }
-            float avgTT = (float)sum / algo.countProcesses();
-            resultLv.Items[i].SubItems.Add(avgTT.ToString());
+            float avgTT = (float)sum / n;
             return avgTT;
+        }
+
+        private void setupResult()
+        {
+            resultLv = new ListView();
+            float avgWT = waitingTime();
+            float avgTT = turnaroundTime();
+            for (int i = 0; i < wts.Length; i++)
+            {
+                ListViewItem lvi = resultLv.Items.Add(algo.getProcName(i));
+                lvi.SubItems.Add(wts[i].ToString());
+                lvi.SubItems.Add(tts[i].ToString());
+            }      
+            ListViewItem l = resultLv.Items.Add("Avg");
+            l.SubItems.Add(avgWT.ToString());
+            l.SubItems.Add(avgTT.ToString());
         }
 
     }

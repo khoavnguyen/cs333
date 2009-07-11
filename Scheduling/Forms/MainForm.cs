@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Scheduling.Forms;
 using Scheduling.Source_codes;
+using System.IO;
 
 namespace Scheduling
 {
@@ -38,14 +39,36 @@ namespace Scheduling
             }
         }
 
-      //  Algorithm[] algos = { new FCFS(), new SJF() };
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int algoIndex = comboBox2.SelectedIndex;
-      //      Algorithm algorithm =  algos[algoIndex];
-            Algorithm algorithm = newAlgorithm(algoIndex);
+            if (comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("You must select an input file first.");
+                return;
+            }
+            if (comboBox2.SelectedIndex == -1)
+            {
+                MessageBox.Show("You must select a scheduling strategy first.");
+                return;
+            }
             int fileIndex = comboBox1.SelectedIndex;
+            int algoIndex = comboBox2.SelectedIndex;
+            InputForm i = new InputForm(files[fileIndex]);
+            if (!i.checkFormat())
+            {
+                MessageBox.Show("The file you selected has a wrong format. Please edit it first.");
+                i.External = false;
+                i.ShowDialog();
+                InputForm j = new InputForm(files[fileIndex]);
+                if (!j.checkFormat())
+                {
+                    MessageBox.Show("Please choose another input file.");
+                    return;
+                }
+            }
+            
+            Algorithm algorithm = newAlgorithm(algoIndex);
             algorithm.loadProcesses(files[fileIndex]);
 
             DisplayForm x = new DisplayForm(algorithm);
@@ -75,5 +98,6 @@ namespace Scheduling
             InputForm x = new InputForm();
             x.ShowDialog();
         }
+
     }
 }

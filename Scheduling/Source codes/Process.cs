@@ -29,7 +29,7 @@ namespace Scheduling
         public Process(string times, int Id)
         {
             timeList = new ArrayList();
-            string[] time = times.Split(new char[]{' ','\t'});
+            string[] time = times.Split(new char[]{' ','\t'}, StringSplitOptions.RemoveEmptyEntries);
             name = time[0];
             arriveTime = Int32.Parse(time[1]);
             for (int i = 2; i < time.Length; i++)

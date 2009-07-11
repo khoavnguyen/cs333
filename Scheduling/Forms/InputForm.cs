@@ -16,6 +16,29 @@ namespace Scheduling.Forms
             InitializeComponent();
         }
 
+        bool external = false;
+        String filepath = null;
+        public bool External
+        {
+            get
+            {
+                return external;
+            }
+            set
+            {
+                external = value;
+            }
+        }
+        public InputForm(String file)
+        {
+            InitializeComponent();
+            Text = "Edit file";
+            button3.Enabled = false;
+            external = true;
+            filepath = file;
+            loadFile(file);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "")
@@ -24,31 +47,77 @@ namespace Scheduling.Forms
                 return;
             }
 
-            String[] processes = textBox1.Text.Split(new String [] {"\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
-            
-            for(int i = 0; i < processes.GetLength(0); i++)
+            if(!checkFormat())
+                return;
+
+            if (filepath == null)
+                save();
+            else
+                overwrite();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void textBox1_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip1.Show("Format: ProcessName ArriveTime CPUBurst IOBurst ... CPUBurst", (IWin32Window)sender);
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.ShowDialog();
+            loadFile(open.FileName);
+        }
+
+        public void loadFile(String filepath)
+        {
+            StreamReader file = new StreamReader(filepath);
+            String line;
+            while ((line = file.ReadLine()) != null)
             {
-                String[] process = processes[i].Split(new String[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+                textBox1.Text += line + "\r\n";
+            }
+            file.Close();
+        }
+
+        public bool checkFormat()
+        {
+            String[] processes = textBox1.Text.Split(new String [] {"\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < processes.GetLength(0); i++)
+            {
+                String[] process = processes[i].Split(new String[] { " ", "\t" }, StringSplitOptions.RemoveEmptyEntries);
                 int count = process.GetLength(0);
                 if (count < 3 || (count % 2) == 0)
                 {
-                    MessageBox.Show("Wrong format on line " + (i + 1).ToString() + ".");
-                    return;
+                    if(external == false)
+                        MessageBox.Show("Wrong format on line " + (i + 1).ToString() + ".");
+                    return false;
                 }
 
-                for(int j = 1; j < count; j++)
+                for (int j = 1; j < count; j++)
                     try
                     {
                         Int32.Parse(process[j]);
                     }
                     catch
                     {
-                        MessageBox.Show("Times must be integers. Wrong format on line " + (i + 1).ToString() + ".");
-                        return;
+                        if (external == false)
+                            MessageBox.Show("Times must be integers. Wrong format on line " + (i + 1).ToString() + ".");
+                        return false;
                     }
-                
             }
-            
+            return true;
+        }
+
+        private void save()
+        {
+            String[] processes = textBox1.Text.Split(new String[] { "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
 
             SaveFileDialog save = new SaveFileDialog();
             save.DefaultExt = "txt";
@@ -69,26 +138,26 @@ namespace Scheduling.Forms
                         write.Flush();
                     }
                     file.Close();
-                } 
+                }
                 MessageBox.Show("File saved.");
             }
             else
             {
                 MessageBox.Show("The file was not saved.");
             }
-
+        }
+        private void overwrite()
+        {
+            String[] processes = textBox1.Text.Split(new String[] { "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
             
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void textBox1_MouseEnter(object sender, EventArgs e)
-        {
-            toolTip1.Show("Format: ProcessName ArriveTime CPUBurst IOBurst ... CPUBurst", (IWin32Window)sender);
+            StreamWriter write = new StreamWriter(filepath);
+            foreach (String s in processes)
+            {
+                write.WriteLine(s);
+                write.Flush();
+            }
+            write.Close();
+            MessageBox.Show("File saved.");
         }
     }
 }

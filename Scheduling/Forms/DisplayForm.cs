@@ -40,6 +40,12 @@ namespace Scheduling.Forms
                 comboBox1.Items.Add(algo.getProcName(i));
                 color.Add(Color.FromKnownColor((KnownColor)colorList[x.Next(colorList.Count - 1)]));
             }
+            if (algo is RR)
+            {
+                textBox1.Enabled = true;
+                RR rr = (RR)algo;
+                rr.Quantum = Int32.Parse(textBox1.Text);
+            }
             reloadForm();
         }
 
@@ -217,8 +223,6 @@ namespace Scheduling.Forms
                 sum += count;
             }
             float avgWT = (float)sum / n;
-            /*resultLv.Items.Add("Avg");
-            resultLv.Items[i].SubItems.Add(avgWT.ToString());*/
             return avgWT;
         }
 

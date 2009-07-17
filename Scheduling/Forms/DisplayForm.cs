@@ -123,6 +123,8 @@ namespace Scheduling.Forms
         private void button4_Click(object sender, EventArgs e)
         {
             while (step()) ;
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
             MessageBox.Show("Finished scheduling.");
         }
 
@@ -157,6 +159,8 @@ namespace Scheduling.Forms
             time = -1;
             algo.reloadProcesses();
             listView1.Clear();
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
             reloadForm();
             MessageBox.Show("Finished undo scheduling.");
         }
@@ -221,6 +225,8 @@ namespace Scheduling.Forms
             time = -1;
             algo.reloadProcesses();
             listView1.Clear();
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
             reloadForm();
         }
 

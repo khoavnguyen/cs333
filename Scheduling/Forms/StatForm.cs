@@ -14,12 +14,12 @@ namespace Scheduling.Forms
     {
         Algorithm algo;
 
-        
+
         public StatForm()
         {
             InitializeComponent();
         }
-        
+
         public StatForm(ListView lv, Algorithm algo)
         {
             InitializeComponent();
@@ -36,12 +36,12 @@ namespace Scheduling.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-             if (textBox1.Visible == true && textBox1.Text == "")
-             {
+            if (textBox1.Visible == true && textBox1.Text == "")
+            {
                 MessageBox.Show("Please enter quantum for Round Robin algorithm.");
                 return;
-             }
-            Algorithm []algos = { new FCFS(), new SJF(), new SRTF(), new RR() };
+            }
+            Algorithm[] algos = { new FCFS(), new SJF(), new SRTF(), new RR() };
             for (int i = 0; i < algos.Length; i++)
             {
                 float avgWT = 0, avgTT = 0;
@@ -58,16 +58,24 @@ namespace Scheduling.Forms
                     DisplayForm x = new DisplayForm(algos[i]);
                     while (x.step()) ;
                     avgWT = x.waitingTime();
-                    avgTT = x.turnaroundTime();    
+                    avgTT = x.turnaroundTime();
                 }
                 else
                 {
-                    int n = listView2.Items.Count - 1; 
+                    int n = listView2.Items.Count - 1;
                     avgWT = float.Parse(listView2.Items[n].SubItems[1].Text);
                     avgTT = float.Parse(listView2.Items[n].SubItems[2].Text);
                 }
-                listView1.Items[0].SubItems.Add(avgWT.ToString());
-                listView1.Items[1].SubItems.Add(avgTT.ToString());
+                if (listView1.Items[0].SubItems.Count == 5)
+                {
+                    listView1.Items[0].SubItems[i + 1].Text = avgWT.ToString();
+                    listView1.Items[1].SubItems[i + 1].Text = avgTT.ToString();
+                }
+                else
+                {
+                    listView1.Items[0].SubItems.Add(avgWT.ToString());
+                    listView1.Items[1].SubItems.Add(avgTT.ToString());
+                }
                 listView1.Visible = true;
             }
         }

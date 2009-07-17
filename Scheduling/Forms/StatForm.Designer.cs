@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Waiting time");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Turnaround time");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Waiting time");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Turnaround time");
             this.button1 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -41,11 +41,13 @@
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(132, 217);
+            this.button1.Location = new System.Drawing.Point(137, 164);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(172, 46);
             this.button1.TabIndex = 0;
@@ -63,11 +65,11 @@
             this.columnHeader5});
             this.listView1.GridLines = true;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6});
-            this.listView1.Location = new System.Drawing.Point(12, 283);
+            listViewItem1,
+            listViewItem2});
+            this.listView1.Location = new System.Drawing.Point(12, 263);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(427, 67);
+            this.listView1.Size = new System.Drawing.Size(427, 66);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -95,7 +97,7 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "RR";
-            this.columnHeader5.Width = 93;
+            this.columnHeader5.Width = 96;
             // 
             // listView2
             // 
@@ -104,9 +106,9 @@
             this.columnHeader7,
             this.columnHeader8});
             this.listView2.GridLines = true;
-            this.listView2.Location = new System.Drawing.Point(38, 22);
+            this.listView2.Location = new System.Drawing.Point(12, 12);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(382, 97);
+            this.listView2.Size = new System.Drawing.Size(427, 137);
             this.listView2.TabIndex = 2;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -119,24 +121,43 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Waiting time";
-            this.columnHeader7.Width = 157;
+            this.columnHeader7.Width = 180;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Turnaround time";
-            this.columnHeader8.Width = 157;
+            this.columnHeader8.Width = 180;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(116, 228);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "For Round Robin, use quantum = ";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(280, 225);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(61, 20);
+            this.textBox1.TabIndex = 4;
             // 
             // StatForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 373);
+            this.ClientSize = new System.Drawing.Size(451, 341);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button1);
             this.Name = "StatForm";
             this.Text = "StatForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -153,5 +174,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

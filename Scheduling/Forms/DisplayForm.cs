@@ -40,12 +40,6 @@ namespace Scheduling.Forms
                 comboBox1.Items.Add(algo.getProcName(i));
                 color.Add(Color.FromKnownColor((KnownColor)colorList[x.Next(colorList.Count - 1)]));
             }
-            if (algo is RR)
-            {
-                textBox1.Enabled = true;
-                RR rr = (RR)algo;
-                rr.Quantum = Int32.Parse(textBox1.Text);
-            }
             reloadForm();
         }
 
@@ -111,6 +105,14 @@ namespace Scheduling.Forms
         {
             if (!step())
                 MessageBox.Show("Finished scheduling.");
+            ArrayList ready = algo.ReadyList;
+            ArrayList wait = algo.WaitingList;
+            listBox1.Items.Clear();
+            for (int i = 0; i < ready.Count; i++)
+                listBox1.Items.Add(((Process)ready[i]).Name);
+            listBox2.Items.Clear();
+            for (int j = 0; j < wait.Count; j++)
+                listBox2.Items.Add(((Process)wait[j]).Name);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -174,7 +176,14 @@ namespace Scheduling.Forms
                 listView1.Items[1].SubItems.RemoveAt(listView1.Items[1].SubItems.Count - 1);
                 listView1.Items[3].SubItems.RemoveAt(listView1.Items[3].SubItems.Count - 1);
                 listView1.Columns.RemoveAt(listView1.Columns.Count - 1);
-
+                ArrayList ready = algo.ReadyList;
+                ArrayList wait = algo.WaitingList;
+                listBox1.Items.Clear();
+                for (int i = 0; i < ready.Count; i++)
+                    listBox1.Items.Add(((Process)ready[i]).Name);
+                listBox2.Items.Clear();
+                for (int j = 0; j < wait.Count; j++)
+                    listBox2.Items.Add(((Process)wait[j]).Name);
             }
             else
                 MessageBox.Show("Finished undo scheduling.");

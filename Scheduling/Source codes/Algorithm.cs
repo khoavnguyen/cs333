@@ -60,6 +60,20 @@ namespace Scheduling
                 return fileName;
             }
         }
+        public ArrayList ReadyList
+        {
+            get
+            {
+                return readyList;
+            }
+        }
+        public ArrayList WaitingList
+        {
+            get
+            {
+                return waitingList;
+            }
+        }
 
         public void loadProcesses(string fileName)
         {

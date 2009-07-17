@@ -23,26 +23,41 @@ namespace Scheduling.Forms
         public StatForm(ListView lv, Algorithm algo)
         {
             InitializeComponent();
-            listView1.Visible = false;
             for (int i = 0; i < lv.Items.Count; i++)
                 listView2.Items.Add((ListViewItem)lv.Items[i].Clone());
             this.algo = algo;
+            listView1.Visible = false;
+            if (algo is RR)
+            {
+                label1.Visible = false;
+                textBox1.Visible = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+             if (textBox1.Visible == true && textBox1.Text == "")
+             {
+                MessageBox.Show("Please enter quantum for Round Robin algorithm.");
+                return;
+             }
             Algorithm []algos = { new FCFS(), new SJF(), new SRTF(), new RR() };
             for (int i = 0; i < algos.Length; i++)
             {
-                float avgWT, avgTT;
+                float avgWT = 0, avgTT = 0;
                 if (algos[i].GetType() != algo.GetType())
                 {
                     string fileName = algo.FileName;
                     algos[i].loadProcesses(fileName);
+                    if (algos[i] is RR)
+                    {
+                        RR r = (RR)algos[i];
+                        r.Quantum = Int32.Parse(textBox1.Text);
+                    }
                     DisplayForm x = new DisplayForm(algos[i]);
                     while (x.step()) ;
-                    avgWT = x.waitingTime(); 
-                    avgTT = x.turnaroundTime();
+                    avgWT = x.waitingTime();
+                    avgTT = x.turnaroundTime();    
                 }
                 else
                 {

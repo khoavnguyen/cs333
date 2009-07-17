@@ -68,9 +68,24 @@ namespace Scheduling
                     return;
                 }
             }
-            
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Please choose an overhead for switching processes.");
+                return;
+            }
+            try
+            {
+                Int32.Parse(textBox1.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Overhead must be an integer.");
+                return;
+            }
+
             Algorithm algorithm = newAlgorithm(algoIndex);
             algorithm.loadProcesses((String)files[fileIndex]);
+            algorithm.Overhead = Int32.Parse(textBox1.Text);
 
             DisplayForm x = new DisplayForm(algorithm);
             

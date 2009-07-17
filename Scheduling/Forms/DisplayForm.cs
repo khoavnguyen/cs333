@@ -47,11 +47,16 @@ namespace Scheduling.Forms
         {
             if (algo is RR)
             {
-                textBox1.Enabled = true;
+                label1.Visible = true;
+                textBox1.Visible = true;
                 RR rr = (RR)algo;
                 rr.Quantum = Int32.Parse(textBox1.Text);
             }
-            reloadForm();
+            else
+            {
+                label1.Visible = false;
+                textBox1.Visible = false;
+            }
         }
 
         private void DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
@@ -204,7 +209,15 @@ namespace Scheduling.Forms
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             RR rr = (RR)algo;
-            rr.Quantum = Int32.Parse(textBox1.Text);
+            try
+            {
+                rr.Quantum = Int32.Parse(textBox1.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Quantum must be an integer.");
+                return;
+            }
             time = -1;
             algo.reloadProcesses();
             listView1.Clear();

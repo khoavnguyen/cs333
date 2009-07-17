@@ -18,6 +18,9 @@ namespace Scheduling
         protected ArrayList readyListStack;
         protected ArrayList waitingListStack;
         protected ArrayList currProcs;
+        protected int overhead;
+        protected int remainOH;
+        protected ArrayList OhStack;
         string fileName;
 
         public Algorithm()
@@ -28,6 +31,7 @@ namespace Scheduling
             readyListStack = new ArrayList();
             waitingListStack = new ArrayList();
             currProcs = new ArrayList();
+            OhStack = new ArrayList();
             currCPUProc = Process.dummy;
             currIOProc = Process.dummy;
         }
@@ -75,6 +79,19 @@ namespace Scheduling
             }
         }
 
+        public int Overhead
+        {
+            get
+            {
+                return overhead;
+            }
+            set
+            {
+                overhead = value;
+                remainOH = value;
+            }
+        }
+
         public void loadProcesses(string fileName)
         {
             this.fileName = fileName;
@@ -90,17 +107,11 @@ namespace Scheduling
         }
         public bool schedule(int t)
         {
-            bool finished = true;
-            for (int i = 0; i < processes.Count; i++)
-            {
-                Process p = (Process)processes[i];
-                if (!p.Finished)
-                    finished = false;
-            }
-            if (finished)
+            if (isFinished())
                 return false;
             currProcs.Add(currCPUProc);
             currProcs.Add(currIOProc);
+            OhStack.Add(remainOH);
             for (int i = 0; i < processes.Count; i++)
             {
                 Process p = (Process)processes[i];
@@ -130,19 +141,23 @@ namespace Scheduling
 
             if (currIOProc == null || currIOProc == Process.dummy)
             {
-                if (waitingList.Count == 0)
-                    return true;
-                currIOProc = (Process)waitingList[0];
-                currIOProc.RemainTime--;
-                waitingList.RemoveAt(0);
-                waitingListStack.Add(currIOProc);
-                waitingListStack.Add(false);
-                waitingListStack.Add(t);
+                if (waitingList.Count != 0)
+                {
+                    currIOProc = (Process)waitingList[0];
+                    currIOProc.RemainTime--;
+                    waitingList.RemoveAt(0);
+                    waitingListStack.Add(currIOProc);
+                    waitingListStack.Add(false);
+                    waitingListStack.Add(t);
+                }
             }
             else
             {
                 currIOProc.RemainTime--;
             }
+
+            if (isFinished())
+                return false;
             return true;
         }
         public virtual bool scheduleCPU(int t)
@@ -215,6 +230,9 @@ namespace Scheduling
                 readyListStack.RemoveAt(readyListStack.Count - 1);
             }
 
+            remainOH = (int)OhStack[OhStack.Count - 1];
+            OhStack.RemoveAt(OhStack.Count - 1);
+
             return true;
         }
         public int countProcesses()
@@ -238,8 +256,10 @@ namespace Scheduling
             readyListStack.Clear();
             waitingListStack.Clear();
             currProcs.Clear();
-            currCPUProc = null;
-            currIOProc = null;
+            OhStack.Clear();
+            currCPUProc = Process.dummy;
+            currIOProc = Process.dummy;
+            remainOH = overhead;
         }
         public bool isFinished()
         {

@@ -11,8 +11,16 @@ namespace Scheduling.Source_codes
         {
             if (currCPUProc == null || currCPUProc == Process.dummy)
             {
-                currCPUProc = Process.dummy;
-                if (readyList.Count == 0)
+                if (currCPUProc == null)
+                {
+                    remainOH--;
+                    if (remainOH == 0)
+                    {
+                        currCPUProc = Process.dummy;
+                        remainOH = overhead;
+                    }
+                }
+                if (currCPUProc == null || readyList.Count == 0)
                     return true;
                 Process p = (Process)readyList[0];
                 currCPUProc = p;

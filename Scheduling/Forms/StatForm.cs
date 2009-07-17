@@ -49,6 +49,7 @@ namespace Scheduling.Forms
                 {
                     string fileName = algo.FileName;
                     algos[i].loadProcesses(fileName);
+                    algos[i].Overhead = algo.Overhead;
                     if (algos[i] is RR)
                     {
                         RR r = (RR)algos[i];

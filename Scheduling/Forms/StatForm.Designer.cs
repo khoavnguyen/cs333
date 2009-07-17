@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Waiting time");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Turnaround time");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Waiting time");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Turnaround time");
             this.button1 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -65,8 +65,8 @@
             this.columnHeader5});
             this.listView1.GridLines = true;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem3,
+            listViewItem4});
             this.listView1.Location = new System.Drawing.Point(12, 263);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(427, 66);
@@ -77,27 +77,27 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "";
-            this.columnHeader1.Width = 48;
+            this.columnHeader1.Width = 97;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "FCFS";
-            this.columnHeader2.Width = 93;
+            this.columnHeader2.Width = 80;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "SJF";
-            this.columnHeader3.Width = 93;
+            this.columnHeader3.Width = 80;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "SRTF";
-            this.columnHeader4.Width = 93;
+            this.columnHeader4.Width = 80;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "RR";
-            this.columnHeader5.Width = 96;
+            this.columnHeader5.Width = 80;
             // 
             // listView2
             // 
@@ -116,17 +116,17 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "Name";
-            this.columnHeader6.Width = 62;
+            this.columnHeader6.Width = 80;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Waiting time";
-            this.columnHeader7.Width = 180;
+            this.columnHeader7.Width = 170;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Turnaround time";
-            this.columnHeader8.Width = 180;
+            this.columnHeader8.Width = 170;
             // 
             // label1
             // 

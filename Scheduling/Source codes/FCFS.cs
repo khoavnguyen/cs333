@@ -27,6 +27,7 @@ namespace Scheduling.Source_codes
                 currCPUProc.RemainTime--;
                 readyList.RemoveAt(0);
                 readyListStack.Add(p);
+                readyListStack.Add(0);
                 readyListStack.Add(false);
                 readyListStack.Add(t);
             }

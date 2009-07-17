@@ -38,6 +38,7 @@ namespace Scheduling
                 currCPUProc.RemainTime--;
                 readyList.RemoveAt(least);
                 readyListStack.Add(currCPUProc);
+                readyListStack.Add(least);
                 readyListStack.Add(false);
                 readyListStack.Add(t);
             }

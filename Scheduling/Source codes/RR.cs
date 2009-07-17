@@ -42,6 +42,7 @@ namespace Scheduling.Source_codes
                 currCPUProc.RemainTime--;
                 p = (Process)readyList[0];
                 readyListStack.Add(p);
+                readyListStack.Add(0);
                 readyListStack.Add(false);
                 readyListStack.Add(t);
                 readyList.RemoveAt(0);

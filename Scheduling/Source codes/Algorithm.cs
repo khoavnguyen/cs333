@@ -147,6 +147,7 @@ namespace Scheduling
                     currIOProc.RemainTime--;
                     waitingList.RemoveAt(0);
                     waitingListStack.Add(currIOProc);
+                    waitingListStack.Add(0);
                     waitingListStack.Add(false);
                     waitingListStack.Add(t);
                 }
@@ -213,7 +214,11 @@ namespace Scheduling
                 if ((bool)waitingListStack[waitingListStack.Count - 1] == true)
                     waitingList.Remove(waitingListStack[waitingListStack.Count - 2]);
                 else
-                    waitingList.Add(waitingListStack[waitingListStack.Count - 2]);
+                {
+                    int x = (int)waitingListStack[waitingListStack.Count - 2];
+                    waitingList.Insert(x, waitingListStack[waitingListStack.Count - 3]);
+                    waitingListStack.RemoveAt(waitingListStack.Count - 2);
+                }
 
                 waitingListStack.RemoveAt(waitingListStack.Count - 1);
                 waitingListStack.RemoveAt(waitingListStack.Count - 1);
@@ -224,7 +229,11 @@ namespace Scheduling
                 if ((bool)readyListStack[readyListStack.Count - 1] == true)
                     readyList.Remove(readyListStack[readyListStack.Count - 2]);
                 else
-                    readyList.Add(readyListStack[readyListStack.Count - 2]);
+                {
+                    int x = (int)readyListStack[readyListStack.Count - 2];
+                    readyList.Insert(x, readyListStack[readyListStack.Count - 3]);
+                    readyListStack.RemoveAt(readyListStack.Count - 2);
+                }
 
                 readyListStack.RemoveAt(readyListStack.Count - 1);
                 readyListStack.RemoveAt(readyListStack.Count - 1);

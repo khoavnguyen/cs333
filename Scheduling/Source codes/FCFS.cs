@@ -14,7 +14,7 @@ namespace Scheduling.Source_codes
                 if (currCPUProc == null)
                 {
                     remainOH--;
-                    if (remainOH == 0)
+                    if (remainOH <= 0)
                     {
                         currCPUProc = Process.dummy;
                         remainOH = overhead;

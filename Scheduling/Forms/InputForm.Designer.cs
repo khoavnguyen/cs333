@@ -82,6 +82,7 @@
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Location = new System.Drawing.Point(206, 15);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(59, 30);
@@ -94,16 +95,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(292, 266);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(200, 200);
+            this.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.MinimumSize = new System.Drawing.Size(230, 200);
             this.Name = "InputForm";
-            this.Text = "Input Form";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Text = "Create input";
             this.ResumeLayout(false);
             this.PerformLayout();
 

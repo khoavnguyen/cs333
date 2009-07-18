@@ -101,6 +101,8 @@ namespace Scheduling
             int i = 0;
             while ((line = file.ReadLine()) != null)
             {
+                if (line == "")
+                    continue;
                 Process p = new Process(line, i++);
                 processes.Add(p);
             }
@@ -271,6 +273,8 @@ namespace Scheduling
             currCPUProc = Process.dummy;
             currIOProc = Process.dummy;
             remainOH = overhead;
+            if(this is RR)
+                ((RR)this).QuantumStack.Clear();
         }
         public bool isFinished()
         {

@@ -84,17 +84,12 @@ namespace Scheduling
         }
         public bool toPrevPhase()
         {
-            if (phase == 0)
-                return false;
-            if (phase == 1)
-                remainTime = (int)timeList[0];
-            if (phase == timeList.Count && finished == true)
+            if (finished == true)
                 finished = false;
-            else
-            {
+            
+            if(phase != 1)
                 phase--;
-                remainTime = 0;
-            }
+            remainTime = 0;
             return true;
         }
         public int currentPhase()

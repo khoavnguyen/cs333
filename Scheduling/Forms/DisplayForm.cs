@@ -215,7 +215,13 @@ namespace Scheduling.Forms
             RR rr = (RR)algo;
             try
             {
-                rr.Quantum = Int32.Parse(textBox1.Text);
+                int x = Int32.Parse(textBox1.Text);
+                if(x <= 0)
+                {
+                    MessageBox.Show("Quantum must be positive.");
+                    return;
+                }
+                rr.Quantum = x;
             }
             catch
             {

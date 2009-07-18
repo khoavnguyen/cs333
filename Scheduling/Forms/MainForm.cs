@@ -75,7 +75,12 @@ namespace Scheduling
             }
             try
             {
-                Int32.Parse(textBox1.Text);
+                int k = Int32.Parse(textBox1.Text);
+                if (k <= 0)
+                {
+                    MessageBox.Show("Overhead must be positive.");
+                    return;
+                }
             }
             catch
             {
@@ -87,8 +92,28 @@ namespace Scheduling
             algorithm.loadProcesses((String)files[fileIndex]);
             algorithm.Overhead = Int32.Parse(textBox1.Text);
 
-            DisplayForm x = new DisplayForm(algorithm);
             
+            String text = "";
+            switch (algoIndex)
+            {
+                case 0:
+                    text = "First come first serve strategy";
+                    break;
+                case 1:
+                    text = "Shortest job first strategy";
+                    break;
+                case 2:
+                    text = "Shortest remaining time strategy";
+                    break;
+                case 3:
+                    text = "Round robin strategy";
+                    break;
+                default:
+                    text = "";
+                    break;
+            }
+            DisplayForm x = new DisplayForm(algorithm);
+            x.Text = text;
             x.Show();
         }
 

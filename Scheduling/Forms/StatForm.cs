@@ -36,11 +36,29 @@ namespace Scheduling.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Visible == true && textBox1.Text == "")
+            if (textBox1.Visible == true)
             {
-                MessageBox.Show("Please enter quantum for Round Robin algorithm.");
-                return;
+                if (textBox1.Text == "")
+                {
+                    MessageBox.Show("Please enter quantum for Round Robin algorithm.");
+                    return;
+                }
+                try
+                {
+                    int x = Int32.Parse(textBox1.Text);
+                    if (x <= 0)
+                    {
+                        MessageBox.Show("Quantum must be positive.");
+                        return;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Quantum must be an integer.");
+                    return;
+                }
             }
+
             Algorithm[] algos = { new FCFS(), new SJF(), new SRTF(), new RR() };
             for (int i = 0; i < algos.Length; i++)
             {

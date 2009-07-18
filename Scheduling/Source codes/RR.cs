@@ -20,12 +20,20 @@ namespace Scheduling.Source_codes
             }
         }
 
+        public ArrayList QuantumStack
+        {
+            get
+            {
+                return quantumStack;
+            }
+        }
+
         public void resetQuantum()
         {
             cpuQuantum = (int)quantumStack[quantumStack.Count - 1];
             quantumStack.RemoveAt(quantumStack.Count - 1);
         }
-
+        
         public override bool scheduleCPU(int t)
         {
             quantumStack.Add(cpuQuantum);
@@ -34,7 +42,7 @@ namespace Scheduling.Source_codes
                 if (currCPUProc == null)
                 {
                     remainOH--;
-                    if (remainOH == 0)
+                    if (remainOH <= 0)
                     {
                         currCPUProc = Process.dummy;
                         remainOH = overhead;

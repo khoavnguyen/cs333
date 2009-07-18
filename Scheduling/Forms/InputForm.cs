@@ -70,14 +70,15 @@ namespace Scheduling.Forms
         private void button3_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.ShowDialog();
-            loadFile(open.FileName);
+            if (open.ShowDialog() == DialogResult.OK)
+                loadFile(open.FileName);
         }
 
         public void loadFile(String filepath)
         {
             StreamReader file = new StreamReader(filepath);
             String line;
+            textBox1.Text = "";
             while ((line = file.ReadLine()) != null)
             {
                 textBox1.Text += line + "\r\n";

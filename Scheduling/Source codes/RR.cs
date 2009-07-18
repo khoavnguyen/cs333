@@ -65,11 +65,19 @@ namespace Scheduling.Source_codes
                 {
                     if (cpuQuantum == 0)
                     {
-                        readyList.Add(currCPUProc);
-                        readyListStack.Add(currCPUProc);
-                        readyListStack.Add(true);
-                        readyListStack.Add(t);
-                        CurrCPUProc = null;
+                        if (readyList.Count != 0)
+                        {
+                            readyList.Add(currCPUProc);
+                            readyListStack.Add(currCPUProc);
+                            readyListStack.Add(true);
+                            readyListStack.Add(t);
+                            CurrCPUProc = null;
+                        }
+                        else
+                        {
+                            currCPUProc.RemainTime--;
+                            cpuQuantum = quantum - 1;
+                        }
                     }
                     else
                     {

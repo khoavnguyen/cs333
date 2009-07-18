@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Scheduling.Source_codes;
 
 namespace Scheduling
 {
@@ -241,7 +242,8 @@ namespace Scheduling
 
             remainOH = (int)OhStack[OhStack.Count - 1];
             OhStack.RemoveAt(OhStack.Count - 1);
-
+            if (this is RR)
+                ((RR)this).resetQuantum();
             return true;
         }
         public int countProcesses()

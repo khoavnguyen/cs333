@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections;
 
 namespace Scheduling.Source_codes
 {
@@ -9,6 +10,7 @@ namespace Scheduling.Source_codes
     {
         int quantum; 
         int cpuQuantum;
+        ArrayList quantumStack = new ArrayList();
 
         public int Quantum
         {
@@ -18,8 +20,15 @@ namespace Scheduling.Source_codes
             }
         }
 
+        public void resetQuantum()
+        {
+            cpuQuantum = (int)quantumStack[quantumStack.Count - 1];
+            quantumStack.RemoveAt(quantumStack.Count - 1);
+        }
+
         public override bool scheduleCPU(int t)
         {
+            quantumStack.Add(cpuQuantum);
             if (currCPUProc == null || currCPUProc == Process.dummy)
             {
                 if (currCPUProc == null)

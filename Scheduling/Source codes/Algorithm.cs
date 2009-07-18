@@ -158,7 +158,7 @@ namespace Scheduling
             }
 
             if (isFinished())
-                return false;
+                currCPUProc = Process.dummy;
             return true;
         }
         public virtual bool scheduleCPU(int t)

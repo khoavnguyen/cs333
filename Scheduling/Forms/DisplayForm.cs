@@ -130,9 +130,9 @@ namespace Scheduling.Forms
 
         public bool step()
         {
-            time++;
-            if (!algo.schedule(time))
+            if (!algo.schedule(time + 1))
                 return false;
+            time++;
 
             Process cpu = algo.CurrCPUProc;
             Process io = algo.CurrIOProc;
@@ -140,7 +140,7 @@ namespace Scheduling.Forms
             if (cpu == null)
                 listView1.Items[1].SubItems.Add("OH");
             else if (algo.isDummy(cpu))
-                listView1.Items[1].SubItems.Add("");
+                listView1.Items[1].SubItems.Add("FREE");
             else
                 listView1.Items[1].SubItems.Add(new ListViewItem.ListViewSubItem(listView1.Items[1],
                     cpu.Name, Color.Black, (Color)color[cpu.ID], listView1.Items[1].Font));

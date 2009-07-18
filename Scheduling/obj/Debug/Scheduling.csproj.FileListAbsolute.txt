@@ -18,3 +18,5 @@ G:\cs333\Scheduling\obj\Debug\Scheduling.Forms.StatForm.resources
 G:\cs333\Scheduling\obj\Debug\Scheduling.Forms.InputForm.resources
 G:\cs333\Scheduling\obj\Debug\Scheduling.Properties.Resources.resources
 G:\cs333\Scheduling\obj\Debug\Scheduling.csproj.GenerateResource.Cache
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Debug\Scheduling.Forms.StatForm.resources
+C:\Documents and Settings\USER\Desktop\Copy of New Folder (5)\Scheduling\obj\Debug\Scheduling.Forms.InputForm.resources

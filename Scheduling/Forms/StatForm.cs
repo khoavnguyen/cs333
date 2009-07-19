@@ -51,6 +51,11 @@ namespace Scheduling.Forms
                         MessageBox.Show("Quantum must be positive.");
                         return;
                     }
+                    if (x > 20)
+                    {
+                        MessageBox.Show("Quantum must be less than 20.");
+                        return;
+                    }
                 }
                 catch
                 {

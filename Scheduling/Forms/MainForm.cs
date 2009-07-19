@@ -35,7 +35,8 @@ namespace Scheduling
                     files.Add(path);
                 for (int i = 0; i < s.Length; i++)
                 {
-                    comboBox1.Items.Add(s[i]);
+                    if(!comboBox1.Items.Contains(s[i]))
+                        comboBox1.Items.Add(s[i]);
                 }
             }
         }
@@ -79,6 +80,11 @@ namespace Scheduling
                 if (k <= 0)
                 {
                     MessageBox.Show("Overhead must be positive.");
+                    return;
+                }
+                if (k > 20)
+                {
+                    MessageBox.Show("Overhead should not exceed 20.");
                     return;
                 }
             }
